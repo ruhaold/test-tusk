@@ -10,8 +10,8 @@ mixin btn(button)
 
     #{tag || 'button'}.btn-common&attributes(attributes)
       span.btn-common__filler
-      .btn-common__text
-        .btn-common__content
+      span.btn-common__text
+        span.btn-common__content
           if svgLeft
             +svgsprite(svgLeft)
           span= text

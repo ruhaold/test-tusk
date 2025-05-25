@@ -7,8 +7,8 @@ mixin picture(options)
             -  const url = `${option.url}.${option.type} 1x, ${option.url}.${option.type} 2x`;
             -  const type =  `image/${option.type}` || undefined;
             - const media = option.minWidth < 1 ? `(min-width: ${option.minWidth}px)` : `(max-width: 359px)`
-            -  const width = (option.width && option.unitsSize) ? option.width + option.unitsSize : option.wholeArea ? '100%' : undefined;
-            -  const height = (option.height && option.unitsSize) ? option.height + option.unitsSize : option.wholeArea ? 'auto' : undefined;
+            -  const width = option.width ? parseInt(option.width) : undefined;
+            -  const height = option.height ? parseInt(option.height) : undefined;
               
               source(
                 srcset=url
