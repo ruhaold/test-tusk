@@ -1,0 +1,340 @@
+@use 'src/scss/base' as *;
+
+.radio-btn {
+  $root: &;
+
+  @mixin size-s {
+    #{$root}__label {
+      padding-left: 2rem;
+      min-height: 2rem;
+
+      &::before {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    &._primary {
+      #{$root}__label {
+        &::after {
+          left: 0.8rem;
+          top: 0.8rem;
+          width: 0.4rem;
+          height: 0.4rem;
+        }
+      }
+    }
+
+    &._secondary {
+      #{$root}__label {
+        &::after {
+          left: 0.5rem;
+          top: 0.5rem;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+
+  @mixin size-m {
+    #{$root}__label {
+      padding-left: 2.2rem;
+      min-height: 2.2rem;
+
+      &::before {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+
+    &._primary {
+      #{$root}__label {
+        &::after {
+          left: 0.8rem;
+          top: 0.8rem;
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+      }
+    }
+
+    &._secondary {
+      #{$root}__label {
+        &::after {
+          left: 0.6rem;
+          top: 0.6rem;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+
+  @mixin size-l {
+    #{$root}__label {
+      padding-left: 2.6rem;
+      min-height: 2.6rem;
+
+      &::before {
+        width: 2.6rem;
+        height: 2.6rem;
+      }
+    }
+
+    &._primary {
+      #{$root}__label {
+        &::after {
+          left: 1rem;
+          top: 1rem;
+          width: 0.6rem;
+          height: 0.6rem;
+        }
+      }
+    }
+
+    &._secondary {
+      #{$root}__label {
+        &::after {
+          left: 0.7rem;
+          top: 0.7rem;
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+      }
+    }
+  }
+
+  @mixin size-xl {
+    #{$root}__label {
+      padding-left: 3.2rem;
+      min-height: 3.2rem;
+
+      &::before {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+    }
+
+    &._primary {
+      #{$root}__label {
+        &::after {
+          left: 1.2rem;
+          top: 1.2rem;
+          width: 0.8rem;
+          height: 0.8rem;
+        }
+      }
+    }
+
+    &._secondary {
+      #{$root}__label {
+        &::after {
+          left: 0.8rem;
+          top: 0.8rem;
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+      }
+    }
+  }
+
+  width: 100%;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+
+    &:checked {
+      & ~ #{$root}__label::after {
+        opacity: 1;
+      }
+    }
+
+    &:disabled {
+      & ~ #{$root}__label {
+        cursor: not-allowed;
+
+        &::before {
+          background: var(--control-state-bg-disabled) !important;
+          border-color: var(--control-state-bg-disabled) !important;
+        }
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    cursor: pointer;
+    width: fit-content;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: var(--control-default-bg01);
+      border: 0.2rem solid;
+      border-radius: 50%;
+      @include transition(all);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      opacity: 0;
+      @include transition(all);
+    }
+
+    span {
+    }
+  }
+
+  &._size-s {
+    @include size-s;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-s;
+        }
+      }
+    }
+  }
+
+  &._size-m {
+    @include size-m;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-m;
+        }
+      }
+    }
+  }
+
+  &._size-l {
+    @include size-l;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-l;
+        }
+      }
+    }
+  }
+
+  &._size-xl {
+    @include size-xl;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-xl;
+        }
+      }
+    }
+  }
+
+  &._secondary {
+    input {
+      @include focus {
+        & ~ #{$root}__label {
+          &::before {
+            border-color: var(--control-state-bg05-outline);
+            background: var(--control-default-bg01);
+          }
+        }
+      }
+    }
+
+    #{$root}__label {
+      &::after {
+        background: var(--control-default-typo01);
+      }
+
+      &::before {
+        border-color: var(--control-default-bg03-outline);
+      }
+
+      @include hover {
+        &::before {
+          border-color: var(--control-state-bg05-outline);
+          background: var(--control-default-bg01);
+        }
+      }
+    }
+
+    input:checked {
+      & ~ #{$root}__label::before {
+        background: var(--control-default-bg01);
+      }
+
+      &:disabled ~ #{$root}__label::after {
+        opacity: 0.4 !important;
+      }
+    }
+  }
+
+  &._primary {
+    input {
+      @include focus {
+        & ~ #{$root}__label {
+          &::before {
+            border-color: var(--control-state-bg04);
+            background: var(--control-default-bg01);
+          }
+        }
+      }
+    }
+
+    #{$root}__label {
+      &::after {
+        background: var(--control-default-bg01);
+      }
+
+      &::before {
+        border-color: var(--control-default-bg03-outline);
+      }
+
+      @include hover {
+        &::before {
+          border-color: var(--control-state-bg06-outline);
+          background: var(--control-default-bg01);
+        }
+      }
+    }
+
+    input:checked {
+      @include focus {
+        & ~ #{$root}__label::before {
+          background: var(--control-state-bg04);
+        }
+      }
+
+      & ~ #{$root}__label {
+        &::before {
+          background: var(--control-state-bg03);
+          border-color: var(--control-state-bg03);
+        }
+
+        @include hover {
+          &::before {
+            background: var(--control-state-bg04);
+            border-color: var(--control-state-bg04);
+          }
+        }
+      }
+    }
+  }
+}

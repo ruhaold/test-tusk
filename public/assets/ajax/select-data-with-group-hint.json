@@ -1,0 +1,51 @@
+{
+	"data": {
+		"items": [
+			{
+				"label": "item 1",
+				"value": 1,
+				"hint": "additional text",
+				"group": 1,
+				"link": "/"
+			},
+			{
+				"label": "item 2",
+				"value": 2,
+				"hint": "additional text",
+				"group": 1,
+				"link": "/"
+			},
+			{
+				"label": "item 3",
+				"value": 3,
+				"hint": "additional text",
+				"group": 1,
+				"link": "/"
+			},
+			{
+				"label": "item 4",
+				"value": 4,
+				"hint": "additional text",
+				"group": 2,
+				"link": "/"
+			},
+			{
+				"label": "item 5",
+				"value": 5,
+				"hint": "additional text",
+				"group": 1,
+				"link": "/"
+			}
+		],
+		"groups": [
+			{
+				"label": "group 1",
+				"value": 1
+			},
+			{
+				"label": "group 2",
+				"value": 2
+			}
+		]
+	}
+}

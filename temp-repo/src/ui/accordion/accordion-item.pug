@@ -1,0 +1,21 @@
+mixin accordion-item(collapse)
+  if collapse
+    -
+      var {
+        id,
+        title,
+        content,
+      } = collapse
+    .accordion-item.js-common-collapse__item&attributes(attributes)
+      button.accordion-item-visible(
+        type='button'
+        aria-controls= id
+        aria-expanded='false'
+      ).js-common-collapse__item__toggle-btn._collapsed
+        h3.accordion-item-title= title
+        span.accordion-item-ico
+          span
+          span
+      .accordion-item-hidden._height-null.js-common-collapse__item__toggle-container(id= id)
+        .rte
+          | !{content}

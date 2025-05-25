@@ -1,0 +1,20 @@
+include ../input
+  
+mixin input-number(params)
+  -
+    var {
+      classes
+    } = params
+
+    params.classes = (classes || '') + ' js-number-input'
+    
+  +input(params)&attributes(attributes)
+  //-
+    в атрибуты можно передать:
+    - min='0'
+    - max='10'
+    - value='1'
+    - step='1'
+    - data-min-num-error-message='Значение должно быть больше или равно 1'
+    - data-max-num-error-message='Значение должно быть меньше или равно 10'
+    - data-step-num-error-message='Значение должно быть кратно 1'

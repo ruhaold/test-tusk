@@ -1,0 +1,47 @@
+mixin pagination(params = {})
+  -
+    var {
+      /**
+       * @type {number}
+       * @description активная страница
+       * */
+      page,
+      /**
+       * @type {number}
+       * @description всего страниц
+       * */
+      pages,
+      /**
+       * @type {Object}
+       * @description атрибуты для кнопки "показать еще"
+       * */
+      btnMoreAttrs,
+      /**
+       * @type {string}
+       * @description текст для кнопки "показать еще"
+       * */
+      btnMoreText,
+      /**
+       * @type {boolean}
+       * @description нужно передавать, если в пагинации участвует только кнопка "показать еще", без кнопок страниц
+       * */
+      notCreatePages,
+    } = params
+
+  .js-pagination-common__placeholder
+  .pagination-common__wrap.js-pagination-common__wrap
+    -
+      var button = {
+        text: btnMoreText || 'Показать еще',
+        svgRight: 'arrow-down',
+      }
+    +btn(button)(
+      type='button'
+      class='_size-m _size-m-lg _size-l-xl _neutral-light pagination-common__show-more _wide js-pagination-common__show-more'
+    )&attributes(btnMoreAttrs)
+
+    ul.pagination-common.js-pagination-common(
+      data-pages=pages || 5
+      data-page=page || 1
+      data-not-create-pages= notCreatePages || undefined
+    )

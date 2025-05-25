@@ -1,0 +1,20 @@
+//- id - уникальный id модалки
+    closeText - текст для кнопки закрытия
+
+    нужно указывать заголовок для модалки внутри контента с id, как значение атрибута aria-labelledby
+mixin popup(id, closeText = '')
+  .popup.js-popup(
+    role="dialog"
+    aria-labelledby=`popup_title_${id}`
+    aria-modal='true'
+    aria-hidden="true"
+    id=`popup_${id}`
+  )&attributes(attributes)
+    .popup__overlay.js-popup__close(aria-hidden='true')
+    .popup__inner
+      button(type='button' title=closeText || 'Закрыть').btn-common._size-s._neutral-light.popup__close.js-popup__close
+        if closeText
+          span= closeText
+        +svgsprite('close')(aria-hidden='true')
+      .popup__content
+        block

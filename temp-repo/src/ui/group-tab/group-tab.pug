@@ -1,0 +1,28 @@
+mixin group-tab(params)
+  - var { items } = params
+  
+  if items.length
+    .group-tab-common&attributes(attributes)
+      ul.group-tab-common__inner
+        each item in items
+          -
+            var {
+              classes,
+              active,
+              tag,
+              attrs,
+              icon,
+              label,
+            } = item
+            var classes = classes || ''
+            
+            classes += active ? ' _active' : ''
+          
+          li  
+            #{tag || 'button'}(
+              class= classes
+            ).group-tab-common__item&attributes(attrs || {})
+              if icon
+                +svgsprite(icon)(aria-hidden='true')
+              span
+               | !{label}

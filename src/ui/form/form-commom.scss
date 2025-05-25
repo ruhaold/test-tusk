@@ -1,0 +1,10 @@
+.form-common {
+  &._hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &._loading {
+    opacity: 0;
+  }
+}

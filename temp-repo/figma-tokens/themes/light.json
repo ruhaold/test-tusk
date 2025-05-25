@@ -1,0 +1,712 @@
+{
+  "bg": {
+    "default": {
+      "bg-main-page": {
+        "value": "#f1f1f6",
+        "type": "color",
+        "description": "Фон главной страницы"
+      },
+      "default": {
+        "value": "{palette.neutral-variant.90}",
+        "type": "color",
+        "description": "Основной фон"
+      },
+      "tone": {
+        "value": "{opacity.neutral-opacity.20}",
+        "type": "color",
+        "description": "цвет затемняющей подложки (оверлея) под всплывающими окнами"
+      },
+      "bg-footer": {
+        "value": "{palette.blue.10}",
+        "type": "color",
+        "description": "цвет фона футера"
+      },
+      "bg-header": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color",
+        "description": "цвет фона хеадера"
+      }
+    }
+  },
+  "surface": {
+    "default": {
+      "surface": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface2": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color",
+        "description": "дополнительные поверхности"
+      },
+      "surface1": {
+        "value": "{palette.neutral-variant.90}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "outline": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color",
+        "description": "Цвет большинства бордеров и тонких разделителей"
+      }
+    },
+    "invert": {
+      "surface": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface1": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface2": {
+        "value": "{palette.neutral-variant.20}",
+        "type": "color",
+        "description": "дополнительные поверхности"
+      },
+      "outline": {
+        "value": "{opacity.neutral-opacity.80}",
+        "type": "color",
+        "description": "Цвет большинства бордеров и тонких разделителей"
+      }
+    },
+    "color": {
+      "yellow-opacity": {
+        "value": "{opacity.yellow-opacity.60}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow-outline": {
+        "value": "{palette.yellow.60}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow": {
+        "value": "{palette.yellow.70}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow2": {
+        "value": "{palette.yellow.60}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "blue": {
+        "value": "{palette.blue.20}",
+        "type": "color",
+        "description": "поверхности"
+      }
+    },
+    "on-surface": {
+      "light": {
+        "surface": {
+          "value": "{palette.neutral-variant.100}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        },
+        "surface1": {
+          "value": "{opacity.white-opacity.40}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        },
+        "surface2": {
+          "value": "{opacity.white-opacity.60}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        }
+      },
+      "dark": {
+        "surface": {
+          "value": "{palette.neutral-variant.10}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        },
+        "surface1": {
+          "value": "{opacity.neutral-opacity.40}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        },
+        "surface2": {
+          "value": "{opacity.neutral-opacity.60}",
+          "type": "color",
+          "description": "этот цвет применяется исключительно к элементам, находящимся поверх основного цвета и где необходимо сохранять лайтинг при переключении тем (бейджи, лейблы, иконки, текст и тп)"
+        }
+      },
+      "color": {
+        "surface": {
+          "value": "{palette.yellow.60}",
+          "type": "color",
+          "description": "для элементов (иконки) на темных поверхностях (создано изза особенностей контрастных тем)"
+        },
+        "surface1": {
+          "value": "{palette.yellow.60}",
+          "type": "color",
+          "description": "для элементов (иконки) на светлых поверхностях (создано изза особенностей контрастных тем)"
+        }
+      }
+    },
+    "elevation": {
+      "elevation1": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      }
+    }
+  },
+  "typography": {
+    "default": {
+      "primary": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color",
+        "description": "базовый цвет текста"
+      },
+      "secondary": {
+        "value": "{opacity.neutral-opacity.40}",
+        "type": "color",
+        "description": "дополнительный цвет текста"
+      },
+      "tertiary": {
+        "value": "{opacity.neutral-opacity.60}",
+        "type": "color",
+        "description": "не акцентный цвет текста"
+      },
+      "link": {
+        "value": "{brand.primary.dark-blue}",
+        "type": "color",
+        "description": "текст ссылка"
+      },
+      "yellow": {
+        "value": "{palette.yellow.60}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      },
+      "blue": {
+        "value": "{palette.blue.50}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      },
+      "blue-light": {
+        "value": "{palette.blue.70}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      }
+    },
+    "invert": {
+      "primary": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color",
+        "description": "базовый цвет текста на темных фонах и картинках"
+      },
+      "secondary": {
+        "value": "{opacity.white-opacity.40}",
+        "type": "color",
+        "description": "дополнительный цвет текста на темных фонах и картинках"
+      },
+      "tertiary": {
+        "value": "{opacity.white-opacity.60}",
+        "type": "color",
+        "description": "дополнительный цвет текста на темных фонах и картинках"
+      },
+      "link": {
+        "value": "{palette.blue.70}",
+        "type": "color",
+        "description": "текст ссылка на темных фонах и картинках"
+      }
+    },
+    "header-footer": {
+      "typo01": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color",
+        "description": "текст в футере и хеадере"
+      },
+      "typo02": {
+        "value": "{opacity.white-opacity.40}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{palette.neutral-variant.50}",
+        "type": "color"
+      }
+    }
+  },
+  "button": {
+    "default": {
+      "bg05": {
+        "value": "{brand.primary.midnight-blue}",
+        "type": "color"
+      },
+      "bg04-outline": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{brand.primary.midnight-blue}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{brand.secondary.yellow}",
+        "type": "color"
+      },
+      "typo05": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "typo04": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{brand.primary.midnight-blue}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      }
+    },
+    "surface": {
+      "typo-surface": {
+        "value": "{palette.neutral-variant.60}",
+        "type": "color"
+      },
+      "typo-surface-yellow": {
+        "value": "{palette.yellow.50}",
+        "type": "color"
+      },
+      "surface": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "surface-yellow": {
+        "value": "{palette.yellow.70}",
+        "type": "color"
+      },
+      "surface-outline": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      }
+    },
+    "state": {
+      "bg08": {
+        "value": "{brand.primary.blue}",
+        "type": "color"
+      },
+      "bg07": {
+        "value": "{brand.primary.dark-blue}",
+        "type": "color"
+      },
+      "typo06": {
+        "value": "{brand.primary.midnight-blue}",
+        "type": "color"
+      },
+      "typo05": {
+        "value": "{brand.primary.midnight-blue}",
+        "type": "color"
+      },
+      "typo04": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "bg06": {
+        "value": "{palette.neutral-variant.70}",
+        "type": "color"
+      },
+      "bg05": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "bg04": {
+        "value": "{brand.primary.blue}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{brand.primary.dark-blue}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{brand.secondary.yellow02}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{brand.secondary.yellow03}",
+        "type": "color"
+      }
+    },
+    "default-dark": {
+      "bg02": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "bg01-outline": {
+        "value": "{opacity.white-opacity.80}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      }
+    },
+    "state-dark": {
+      "bg04": {
+        "value": "{brand.secondary.yellow03}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{brand.secondary.yellow02}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{opacity.white-opacity.60}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{opacity.white-opacity.80}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      }
+    }
+  },
+  "control": {
+    "default": {
+      "bg01": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{palette.neutral-variant.90}",
+        "type": "color"
+      },
+      "bg03-outline": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color",
+        "description": "цвет для некоторых активных состояний на контрастных поверхностях (например желтый)"
+      },
+      "typo02": {
+        "value": "{opacity.neutral-opacity.40}",
+        "type": "color"
+      }
+    },
+    "state": {
+      "bg-disabled": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color",
+        "description": "фон любых откюченных конролов, элементы, расположенные выше — добавлять непрозрачность 40% для уменьшения контраста"
+      },
+      "bg07": {
+        "value": "{opacity.yellow-opacity.90}",
+        "type": "color"
+      },
+      "bg06-outline": {
+        "value": "{palette.yellow.70}",
+        "type": "color"
+      },
+      "bg05-outline": {
+        "value": "{brand.primary.light-blue}",
+        "type": "color"
+      },
+      "bg04": {
+        "value": "{palette.yellow.60}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{palette.yellow.70}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{palette.neutral-variant.70}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      }
+    }
+  },
+  "gradient": {
+    "default": {
+      "default": {
+        "value": "linear-gradient(0deg, rgba({bg.default.default}, 1) 0%, rgba({bg.default.default}, 0) 100%)",
+        "type": "color"
+      },
+      "default-tilt": {
+        "value": "linear-gradient(145deg, rgba({bg.default.default}, 1) 35%, rgba({bg.default.default}, 0.1) 100%)",
+        "type": "color",
+        "description": "наклонный градиент маскирует паттерн, располагается над bg.default.default"
+      },
+      "default-tilt-bg-main-page": {
+        "value": "linear-gradient(155deg, rgba({bg.default.bg-main-page}, 1) 0%, rgba({bg.default.bg-main-page}, 0.02) 70%)",
+        "type": "color",
+        "description": "наклонный градиент маскирует паттерн, располагается над bg.default.bg-main-page"
+      },
+      "neutral": {
+        "value": "linear-gradient(0deg, rgba({surface.default.surface2}, 1) 0%, rgba({surface.default.surface2}, 0) 100%)",
+        "type": "color"
+      },
+      "neutral-blue": {
+        "value": "linear-gradient(180deg, rgba({palette.blue.70}, 0.87) 10%, rgba({palette.blue.70}, 0) 90%)",
+        "type": "color"
+      },
+      "yellow": {
+        "value": "linear-gradient(0deg, rgba({surface.color.yellow}, 1) 0%, rgba({surface.color.yellow}, 0) 100%)",
+        "type": "color"
+      },
+      "masking-surface": {
+        "value": "linear-gradient(90deg, rgba({surface.default.surface2}, 0) 0%, rgba({surface.default.surface2}, 1) 50%)",
+        "type": "color",
+        "description": "цвет маскирующего слоя, расположен под кнопкой при ховере грида"
+      },
+      "masking-footer": {
+        "value": "linear-gradient(45deg, rgba({bg.default.bg-footer}, 0) 0%, rgba({palette.blue.5}, 1) 85%)",
+        "type": "color",
+        "description": "цвет маскирующего слоя, расположен над паттерном"
+      }
+    }
+  },
+  "system": {
+    "alert1": {
+      "value": "{system.alert}",
+      "type": "color"
+    },
+    "alert2": {
+      "value": "rgba({system.alert1}, 0.1)",
+      "type": "color"
+    },
+    "alert-gradient": {
+      "value": "linear-gradient(90deg, rgba({system.alert1}, 0) 0%, rgba({system.alert1}, 0.08) 100%)",
+      "type": "color"
+    },
+    "alert-gradient-1": {
+      "value": "linear-gradient(0deg, rgba({system.alert1}, 0) 0%, rgba({system.alert1}, 0.24) 100%)",
+      "type": "color"
+    },
+    "warning1": {
+      "value": "{system.warning}",
+      "type": "color"
+    },
+    "warning2": {
+      "value": "rgba({system.warning1}, 0.1)",
+      "type": "color"
+    },
+    "warning-gradient": {
+      "value": "linear-gradient(90deg, rgba({system.warning1}, 0) 0%, rgba({system.warning1}, 0.08) 100%)",
+      "type": "color"
+    },
+    "warning-gradient-1": {
+      "value": "linear-gradient(0deg, rgba({system.warning1}, 0) 0%, rgba({system.warning1}, 0.24) 100%)",
+      "type": "color"
+    },
+    "success1": {
+      "value": "{system.success}",
+      "type": "color"
+    },
+    "success2": {
+      "value": "rgba({system.success1}, 0.1)",
+      "type": "color"
+    }
+  },
+  "shadow": {
+    "elevation1": {
+      "value": [
+        {
+          "color": "#455b780f",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "0",
+          "blur": "0",
+          "spread": "0"
+        },
+        {
+          "color": "#455b780f",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "5",
+          "blur": "12",
+          "spread": "0"
+        },
+        {
+          "color": "#455b780d",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "21",
+          "blur": "21",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7808",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "48",
+          "blur": "29",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7803",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "85",
+          "blur": "34",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7800",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "133",
+          "blur": "37",
+          "spread": "0"
+        }
+      ],
+      "type": "boxShadow"
+    }
+  },
+  "additional": {
+    "outline": {
+      "value": "rgba(0, 0, 0, 0)",
+      "type": "color",
+      "description": "корректирующий цвет для контрастных тем"
+    }
+  },
+  "only-map": {
+    "element": {
+      "bg": {
+        "value": "{palette.yellow.60}",
+        "type": "color"
+      },
+      "typo": {
+        "value": "{palette.blue.5}",
+        "type": "color"
+      },
+      "bg1": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "outline1": {
+        "value": "{palette.neutral-variant.90}",
+        "type": "color",
+        "description": "обводка для only-map.element.bg1"
+      },
+      "typo1": {
+        "value": "{palette.blue.5}",
+        "type": "color"
+      },
+      "bg2": {
+        "value": "{palette.blue.5}",
+        "type": "color"
+      },
+      "typo2": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      }
+    },
+    "figure": {
+      "bg": {
+        "value": "rgba({palette.blue.70}, 0.24)",
+        "type": "color"
+      },
+      "typo": {
+        "value": "{palette.blue.70}",
+        "type": "color"
+      }
+    },
+    "categories": {
+      "walls": {
+        "value": "#cad1db",
+        "type": "color"
+      },
+      "walls-area": {
+        "value": "{palette.neutral-variant.80}",
+        "type": "color"
+      },
+      "shop": {
+        "value": "#ced6ea",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "shop-active": {
+        "value": "#9db0e1",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "food": {
+        "value": "#cadbdb",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "food-active": {
+        "value": "#98c6c6",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "finance": {
+        "value": "#d3ddb7",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "finance-active": {
+        "value": "#c1d97e",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "service": {
+        "value": "#e8dcd0",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "service-active": {
+        "value": "#f0c183",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "default, vacant (rent)": {
+        "value": "#cad1db",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "default, vacant (rent) - active": {
+        "value": "#a9b6c8",
+        "type": "color"
+      },
+      "other": {
+        "value": "#DFE3EE",
+        "type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use 'src/scss/base' as *;
+
+.page-preloader {
+  $root: &;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  @include transition((opacity, visibility));
+
+  &._show {
+    opacity: 1;
+    visibility: inherit;
+  }
+
+  &__inner {
+    width: 6rem;
+    height: 6rem;
+    border-right: 0.5rem solid var(--surface-light, #fff);
+    border-radius: 50%;
+    border-top: 0.5rem solid var(--surface-light, #fff);
+    border-left: 0.5rem solid var(--surface-light, #fff);
+    border-bottom: 0.5rem solid var(--surface-light, #fff);
+    animation: spin 1s cubic-bezier(0.34, 0.15, 0.54, 0.75) infinite;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 10rem;
+    right: 0;
+
+    #{$root}._center & {
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

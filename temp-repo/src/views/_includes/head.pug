@@ -1,0 +1,50 @@
+//- скрипт для применения цветовой схемы без "мерцания" светлой темы
+script.
+  const currentTheme = localStorage.getItem('altColorValue')
+
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme)
+  }
+
+meta(charset="utf-8")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+meta(name="format-detection" content="telephone=no")
+
+title #{pagetitle} :: Frontend pack
+
+link(rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png")
+link(rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png")
+link(rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png")
+link(rel="manifest" href="assets/site.webmanifest")
+link(rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#ffffff")
+link(rel="shortcut icon" href="assets/favicon.ico")
+meta(name="msapplication-TileColor" content="#ffffff")
+meta(name="msapplication-config" content="assets/browserconfig.xml")
+meta(name="theme-color" content="#ffffff")
+
+meta(name="description" content="Description")
+meta(property="og:url" content="https://")
+meta(property="og:type" content="website")
+meta(property="og:title" content=pagetitle)
+meta(property="twitter:title" content=pagetitle)
+meta(property="og:description" content="description")
+meta(property="twitter:description" content="description")
+meta(property="og:image" content="assets/share.png")
+
+meta(name='robots' content='noindex, nofollow')
+
+//-link(rel="preconnect" href="https://fonts.googleapis.com")
+link(href="/src/scss/generated/variables.css" rel='stylesheet')
+link(href="/src/scss/generated/variables-light.css" rel='stylesheet')
+link(href="/src/scss/generated/variables-dark.css" rel='stylesheet')
+link(href="/src/scss/generated/variables-contrast-blue.css" rel='stylesheet')
+link(href="/src/scss/generated/variables-contrast-dark.css" rel='stylesheet')
+link(href="/src/scss/generated/variables-contrast-light.css" rel='stylesheet')
+
+script.
+  /* изменяемые настройки скриптов, указаны значения по умолчанию */
+  var appConfig = {
+    /*
+    scrollToOffset: 200, // оффсет при скролле до элемента
+    */
+  }

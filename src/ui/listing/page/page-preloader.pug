@@ -1,0 +1,12 @@
+mixin page-preloader(withoutJs)
+  .page-preloader(
+    role="alert" 
+    aria-live="assertive"
+    class= withoutJs ? '' : 'js-filter-form__preloader'
+  )&attributes(attributes)
+    .page-preloader__inner
+      span.screen-reader-only Идет загрузка
+      div
+      div
+      div
+      div

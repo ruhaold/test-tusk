@@ -1,0 +1,6 @@
+mixin toggle-switch(params)
+  - var { id, label } = params
+  .toggle-switch
+    input(type='checkbox' id=id)&attributes(attributes)
+    label(for=id)= label
+    block

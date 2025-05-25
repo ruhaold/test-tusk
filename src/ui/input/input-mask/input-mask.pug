@@ -1,0 +1,15 @@
+include ../input
+  
+mixin input-mask(params)
+  -
+    var {
+      classes
+    } = params
+
+    params.classes = (classes || '') + ' js-inputmask'
+    
+  +input(params)&attributes(attributes)
+  //-
+    в атрибуты можно передавать все параметры, которые поддерживает плагин inputmask, например:
+    - data-inputmask-alias="email"
+    - data-inputmask-inputmode="email"

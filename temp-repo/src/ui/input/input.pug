@@ -1,0 +1,200 @@
+mixin input(params)
+  - 
+    var {
+      /**
+       * @type {string}
+       * */
+      placeholder,
+      /**
+       * @type {string}
+       * */
+      id,
+      /**
+       * @type {string}
+       * */
+      errorMessage, 
+      /**
+       * @type {boolean}
+       * @description выводить лейбл вне поля ввода
+       * */      
+      isLabelOutside,
+      /**
+       * @type {string}
+       * @description классы для обертки с классом "input-common"
+       * */
+      classes,
+      /**
+       * @type {string}
+       * @description имя левой иконки, передается в миксин svgsprite
+       * */
+      iconLeft,
+      /**
+       * @type {string}
+       * @description имя правой иконки, передается в миксин svgsprite
+       * */
+      iconRight,
+      /**
+       * @type {{ attrs, label, iconLeft, iconRight, svgTitle }[]}
+       * @description массив кнопок, которые выводятся поверх инпута
+       * */
+      buttons,
+      /**
+       * @type {boolean}
+       * @description скрывает текст кнопок на мобилке, оставляет только иконку
+       * */
+      hideBtnTextOnMobile,
+      /**
+       * @type {boolean}
+       * @description скрывает иконки кнопок на планшете, оставляя только текст
+       * */
+      hideBtnSvgOnMd,
+      /**
+       * @type {boolean}
+       * @description выводит кнопки под вне инпута на мобилке
+       * */
+      btnOutsideOnMobile,
+      /**
+       * @type {string}
+       * @description подпись под инпутом
+       * */
+      caption,
+      /**
+       * @type {boolean}
+       * @description инпут выступает в роли календаря
+       * */
+      isDatepicker,
+    } = params
+    
+    var isFile = attributes && attributes.type === 'file'
+    var isNumber = attributes && attributes.type === 'number'
+    var isTime = attributes && attributes.type === 'time'
+    var classResult = classes || ''
+    
+    classResult += isLabelOutside ? ' _label-outside' : ''
+    classResult += iconLeft ? ' _with-icon-left' : ''
+    classResult += iconRight ? ' _with-icon-right' : ''
+    classResult += buttons && buttons.length ? ' _with-button' : ''
+    classResult += hideBtnTextOnMobile ? ' _hide-btn-text-on-mobile' : ''
+    classResult += hideBtnSvgOnMd ? ' _hide-btn-svg-on-md' : ''
+    classResult += btnOutsideOnMobile ? ' _btn-outside-on-mobile' : ''
+    classResult += isFile ? ' _is-file js-dropzone' : ''
+    classResult += !isFile ? ' js-input' : ''
+    classResult += isNumber ? ' _is-number' : ''
+    classResult += isTime ? ' _is-time' : ''
+  
+  .input-common(
+    class=classResult
+  )
+    if isLabelOutside && placeholder
+      label(for=id).input-common__label.js-input__label
+        | !{placeholder}
+    .input-common__inner
+      if !isLabelOutside && placeholder
+        label(for=id class=attributes.type==='textarea'?'_textarea':'').input-common__label.js-input__label
+          | !{placeholder}
+      if iconLeft
+        +svgsprite(iconLeft)(aria-hidden='true' class='input-common__icon _icon-left')
+      if attributes.type === 'textarea'
+        - 
+          delete attributes.type
+          var ariaDescribedby = ''
+          ariaDescribedby += isFile || caption ? ` ${id}_caption` : ''
+          
+        textarea(
+          class='input-common__input _textarea js-input__input'
+          id=id
+          aria-describedby= ariaDescribedby || undefined
+          data-error-message= errorMessage
+        )&attributes(attributes)
+        span.input-common__resize-icon
+      else
+        - 
+          var inputClasses = ''
+          
+          if (isFile) {
+            inputClasses += ' js-dropzone__input'
+          }
+          
+          if (!isFile) {
+            inputClasses += ' js-input__input'
+          }
+          
+        -
+          var ariaDescribedby = ''
+          ariaDescribedby += isFile || caption ? ` ${id}_caption` : ''
+          ariaDescribedby += isDatepicker ? ` ${id}_hidden-caption` : ''
+          
+        input(
+          class=`input-common__input ${inputClasses}`
+          id=id
+          aria-describedby= ariaDescribedby || undefined
+          data-error-message= errorMessage
+        )&attributes(attributes)
+      
+      if iconRight
+        +svgsprite(iconRight)(aria-hidden='true' class='input-common__icon _icon-right')
+        
+      if isNumber
+        button(
+          tabindex='-1'
+          aria-hidden='true'
+          type='button'
+          class='input-common__button-number _minus link-hover js-input__button-minus'
+        )
+          +svgsprite('minus')(aria-hidden='true')
+        button(
+          tabindex='-1'
+          aria-hidden='true'
+          type='button'
+          class='input-common__button-number _plus link-hover js-input__button-plus'
+        )
+          +svgsprite('plus')(aria-hidden='true')
+        
+    span(
+      id=id + '_error'
+      aria-hidden='true'
+    ).input-common__message._hidden.js-input__error-message= errorMessage
+    
+    if isDatepicker
+      span(
+        id=id + '_hidden-caption'
+      ).input-common__message._hidden
+        | Для выбора даты необходимо установить фокус на данное поле.
+        | Выбор даты осуществляется с помощью стрелок на клавиатуре.
+        | Подтверждение выбранной даты: клавиша Enter.
+        | Закрытие календаря: клавиша Esc.
+        | Переход на месяц вперед: Ctrl + стрелка вправо или стрелка вверх.
+        | Переход на месяц назад: Ctrl + стрелка влево или стрелка вниз.
+        | Переход на год вперед: Shift + стрелка вправо или стрелка вверх.
+        | Переход на год назад: Shift + стрелка влево или стрелка вниз.
+        | Переход на 10 лет вперед: Alt + стрелка вправо или стрелка вверх.
+        | Переход на 10 лет назад: Alt + стрелка влево или стрелка вниз.
+        | Смена представления, от дней до декад: Ctrl + Shift + стрелка вверх.
+    
+    if caption
+      span(
+        id=id + '_caption'
+      ).input-common__caption= caption  
+      
+    if isFile
+      span.input-common__caption.js-dropzone__caption._hidden
+      .input-common__file-list.js-dropzone__list._hidden
+      
+    if buttons
+      .input-common__buttons.js-input__buttons
+        each button, i in buttons
+          #{isFile ? 'label' : 'button'}(
+            class='btn-common input-common__button'
+            for=isFile ? id : undefined
+            tabindex=isFile ? '-1' : undefined
+            aria-hidden=isFile ? 'true' : undefined
+          )&attributes(button.attrs || {})
+            if button.iconLeft
+              +svgsprite(button.iconLeft, button.svgTitle || '')(aria-hidden= !button.svgTitle ? 'true' : undefined)
+            if button.label
+              span= button.label
+            if button.iconRight
+              +svgsprite(button.iconRight, button.svgTitle || '')(aria-hidden= !button.svgTitle ? 'true' : undefined)
+    
+    block
+      

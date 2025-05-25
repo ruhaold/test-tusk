@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use 'src/scss/base' as *;
+
+.breadcrumbs-common {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.4rem 0;
+  overflow-x: auto;
+  scrollbar-width: none; /* for Firefox */
+  margin: -0.4rem 0 2.4rem;
+  ._gradient & {
+    position: relative;
+    z-index: 3;
+  }
+
+  &::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+  @include up(sm) {
+    padding-left: map.get($container-paddings, sm);
+    padding-right: map.get($container-paddings, sm);
+    margin-left: -#{map.get($container-paddings, sm)};
+    margin-right: -#{map.get($container-paddings, sm)};
+  }
+
+  @include up(md) {
+    padding-left: map.get($container-paddings, md);
+    padding-right: map.get($container-paddings, md);
+    margin-left: -#{map.get($container-paddings, md)};
+    margin-right: -#{map.get($container-paddings, md)};
+  }
+  @include up(lg) {
+    padding-left: map.get($container-paddings, lg);
+    padding-right: map.get($container-paddings, lg);
+    margin-left: -#{map.get($container-paddings, lg)};
+    margin-right: -#{map.get($container-paddings, lg)};
+  }
+  @include up(xl) {
+    padding-left: map.get($container-paddings, xl);
+    padding-right: map.get($container-paddings, xl);
+    margin-left: -#{map.get($container-paddings, xl)};
+    margin-right: -#{map.get($container-paddings, xl)};
+    margin-bottom: 3rem;
+  }
+
+  &__item {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    a {
+      color: var(--typography-default-primary);
+    }
+
+    a,
+    span {
+      display: inline-block;
+      font-size: 1.3rem;
+      user-select: none;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.4rem;
+      white-space: nowrap;
+    }
+
+    span {
+      color: var(--typography-default-tertiary);
+    }
+
+    svg {
+      flex-shrink: 0;
+      object-fit: contain;
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      color: var(--typography-default-tertiary);
+    }
+  }
+}

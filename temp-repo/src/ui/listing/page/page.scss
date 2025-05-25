@@ -1,0 +1,18 @@
+@use 'src/scss/base' as *;
+
+.page {
+  $root: &;
+
+  &__content-wrap {
+    position: relative;
+  }
+
+  &__content {
+    @include transition((opacity, visibility));
+
+    &._hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

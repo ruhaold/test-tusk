@@ -1,0 +1,241 @@
+@use 'sass:map';
+@use 'src/scss/base' as *;
+
+.contacts-us {
+  $padding-t-contacts-us: (
+    sm: 40,
+    md: 52,
+    lg: 83,
+    xl: 118);
+  $padding-b-contacts-us: (
+    sm: 45,
+    md: 31,
+    lg: 0,
+    xl: 0);
+
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  padding-top: em(map.get($padding-t-contacts-us, 'sm'), map.get($fs-base, 'sm'));
+  padding-bottom: em(map.get($padding-b-contacts-us, 'sm'), map.get($fs-base, 'sm'));
+
+  @each $key, $value in $fs-base {
+    @include up($key) {
+      padding-top: em(map.get($padding-t-contacts-us, 'sm'), $value);
+      padding-bottom: em(map.get($padding-b-contacts-us, 'sm'), $value);
+    }
+  }
+
+  @include up('lg') {
+    padding-bottom: 0;
+  }
+
+  &__title {
+    $fs-title: (
+      sm: 38,
+      md: 42,
+      lg: 56,
+      xl: 85);
+    $ls-title: (
+      sm: -0.76,
+      md: -0.84,
+      lg: -1.68,
+      xl: -2.55);
+    $mb-title: (
+      sm: 16,
+      md: 20,
+      lg: 36,
+      xl: 52);
+
+    font-size: em(map.get($fs-title, 'sm'), map.get($fs-base, 'sm'));
+    letter-spacing: em(map.get($ls-title, 'sm'), map.get($fs-title, 'sm'));
+    margin-bottom: em(map.get($mb-title, 'sm'), map.get($fs-title, 'sm'));
+
+    @each $key, $value in $fs-title {
+      @include up($key) {
+        font-size: em($value, map.get($fs-base, $key));
+        letter-spacing: em(map.get($ls-title, $key), $value);
+        margin-bottom: em(map.get($mb-title, $key), $value);
+      }
+    }
+  }
+
+  &__description {
+    $fs-description: (
+      sm: 16,
+      md: 16,
+      lg: 18,
+      xl: 26);
+
+    font-size: em(map.get($fs-description, 'sm'), map.get($fs-base, 'sm'));
+    width: 100%;
+
+    @each $key, $value in $fs-description {
+      @include up($key) {
+        font-size: em($value, map.get($fs-base, $key));
+      }
+    }
+
+    @include up('lg') {
+      max-width: em(330, map.get($fs-description, 'lg'));
+    }
+
+    @include up('xl') {
+      max-width: em(490, map.get($fs-description, 'lg'));
+    }
+  }
+
+  &__contacts {
+    $margin-t-contacts: (
+      sm: 60,
+      md: 63,
+      lg: 114,
+      xl: 168);
+
+    display: flex;
+    flex-direction: column;
+    margin-top: em(map.get($margin-t-contacts, 'sm'), map.get($fs-base, 'sm'));
+    gap: em(21, map.get($fs-base, 'sm'));
+
+    @each $key, $value in $margin-t-contacts {
+      @include up($key) {
+        margin-top: em($value, map.get($fs-base, $key));
+      }
+    }
+
+    @include up('md') {
+      flex-direction: row;
+      gap: em(131, map.get($fs-base, 'lg'));
+    }
+
+    @include up('lg') {
+      flex-direction: column;
+      gap: em(42, map.get($fs-base, 'lg'));
+    }
+
+    @include up('xl') {
+      flex-direction: column;
+      gap: em(66, map.get($fs-base, 'lg'));
+    }
+
+  }
+
+  &__contact {
+
+  }
+
+  &__address {
+    $gap-address: (
+      sm: 10,
+      md: 8,
+      lg: 8,
+      xl: 12);
+    display: flex;
+    flex-direction: row-reverse;
+    gap: em(map.get($gap-address, 'sm'), map.get($fs-base, 'sm'));
+    justify-content: flex-end;
+
+    @each $key, $value in $gap-address {
+      @include up($key) {
+        gap: em($value, map.get($fs-base, $key));
+      }
+    }
+
+    @include up('md') {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+  }
+
+  &__mail {
+    $fs-mail: (
+      sm: 24,
+      md: 24,
+      lg: 28,
+      xl: 42);
+    $ls-mail: (
+      sm: -0.72,
+      md: -0.72,
+      lg: -0.84,
+      xl: -1.26);
+    $mb-mail: (
+      sm: 3,
+      md: 4,
+      lg: 10,
+      xl: 14);
+
+    font-size: em(map.get($fs-mail, 'sm'), map.get($fs-base, 'sm'));
+    letter-spacing: em(map.get($ls-mail, 'sm'), map.get($fs-mail, 'sm'));
+    margin-bottom: em(map.get($mb-mail, 'sm'), map.get($fs-mail, 'sm'));
+
+    @each $key, $value in $fs-mail {
+      @include up($key) {
+        font-size: em($value, map.get($fs-base, $key));
+        letter-spacing: em(map.get($ls-mail, $key), map.get($fs-mail, $key));
+        margin-bottom: em(map.get($mb-mail, $key), map.get($fs-mail, $key));
+      }
+    }
+
+    @include hover() {
+        color: $color-secondary;
+
+        @include transition(color);
+    }
+  }
+
+  &__avatar {
+    $size-avatar: (
+      sm: 30,
+      md: 33,
+      lg: 38,
+      xl: 56);
+
+    position: relative;
+
+    @each $key, $value in $size-avatar {
+      @include up($key) {
+        width: em($value, map.get($fs-base, $key));
+      }
+    }
+
+    .contacts-us-account-director {
+      $size-avatar: (
+        sm: 30,
+        md: 33,
+        lg: 38,
+        xl: 56);
+
+      width: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @each $key, $value in $size-avatar {
+        @include up($key) {
+          height: em($value, map.get($fs-base, $key));
+        }
+      }
+    }
+  }
+
+  &__postscript {
+    $fs-postscript: (
+      sm: 12,
+      md: 12,
+      lg: 14,
+      xl: 18);
+
+    font-size: em(map.get($fs-postscript, 'sm'), map.get($fs-base, 'sm'));
+    opacity: 0.6;
+
+    @each $key, $value in $fs-postscript {
+      @include up($key) {
+        font-size: em($value, map.get($fs-base, $key));
+      }
+    }
+  }
+
+}

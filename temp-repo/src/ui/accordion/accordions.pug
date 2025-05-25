@@ -1,0 +1,26 @@
+mixin accordions(accordionsItems)
+  if accordionsItems
+    .accordions&attributes(attributes)
+      .accordions__blocks.js-common-collapse
+        each accordionsItem in accordionsItems
+          -
+            var {
+              anchorId,
+              title,
+              svg,
+              /**
+               * @type {Object[]}
+               * @description массив аккордеонов
+               * */      
+              items
+            } = accordionsItem
+            
+          .accordions__blocks-item(id= anchorId ? anchorId : '')
+            .accordions__title
+              .accordions__title-ico
+                +svgsprite(svg)
+              h2.accordions__title-text= title
+            .accordions__list
+              if items && items.length
+                each collapse in items
+                  +accordion-item(collapse)

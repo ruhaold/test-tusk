@@ -1,0 +1,129 @@
++popup('test')(class="_feedback-global")
+  .popup__head
+    h4.popup__title(id='popup_title_test') Обратная связь
+    p.popup__desc Мы пришлем ответ на ваш вопрос в течение 30 дней.
+  form.popup__form.js-form(
+    action="#"
+    novalidate
+    autocomplete="off"
+    data-goal-id='vip_hall_order'
+    data-goal-event='formSendSuccess'
+  )
+    .popup__field-list
+      +input({
+        placeholder: 'ФИО',
+        id: 'feedback_from_global_name',
+        errorMessage: 'Необходимо указать ФИО',
+        isLabelOutside: false,
+        classes: '_size-s _size-m-lg _size-m-xl popup__form-field',
+      })(
+        type='text',
+        name='name',
+        required,
+      )
+
+      +input-tel({
+        placeholder: 'Телефон',
+        id: 'feedback_form_tel',
+        errorMessage: 'Необходимо указать телефон',
+        isLabelOutside: false,
+        classes: '_size-s _size-m-lg _size-m-xl _is-tel popup__form-field',
+      })(
+        type='tel',
+        name='tel',
+        required,
+        class='js-inputmask js-intl-tel-input'
+        data-inputmask-mask="[+]9{+}"
+        data-inputmask-placeholder=" "
+        maxlength="18"
+        data-intl-dial-code="tel_dial_code"
+        data-intl-iso="tel_iso2"
+      )
+
+      +input-mask({
+        placeholder: 'Электронная почта',
+        id: 'feedback_form_email',
+        errorMessage: 'Необходимо указать электронную почту',
+        isLabelOutside: false,
+        classes: '_size-s _size-m-lg _size-m-xl popup__form-field',
+      })(
+        type='text'
+        name='email'
+        required
+        data-inputmask-alias="email"
+        data-inputmask-inputmode="email"
+      )
+
+      +input({
+        placeholder: 'Загрузите файл',
+        id: 'feedback_from_global_file',
+        isLabelOutside: false,
+        classes: '_size-s _size-m-lg _size-m-xl popup__form-field',
+        iconLeft: '',
+        iconRight: '',
+        hideBtnTextOnMobile: true,
+        hideBtnSvgOnMd: false,
+        btnOutsideOnMobile: false,
+        caption: 'Вы можете загрузить до 10 файлов общим размером не более 100 Мб',
+        errorMessage: 'Необходимо заполнить это поле',
+        buttons: [
+          {
+            attrs: {
+              class: '_size-xs _size-s-lg _size-s-xl _neutral-dark',
+            },
+            label: 'Выбрать файл',
+            iconLeft: 'attach',
+          },
+        ],
+      })(
+        type='file'
+        name='file'
+        data-max-file-count-error-message='Достигнуто максимальное количество файлов.'
+        data-max-file-size-error-message='Размер файла {{name}} превышает допустимый лимит.'
+        data-max-file-accept-error-message='Тип файла {{name}} недопустим.'
+        data-file-count-message='Файлов: {{count}}. Общий размер: {{size}}'
+        data-max-file-count='10'
+        data-max-file-size='100'
+        accept='.doc,.docx,.pdf'
+        multiple
+        data-use-clipboard
+      )
+
+      +input({
+        placeholder: 'Текст обращения',
+        id: 'feedback_from_global_message',
+        errorMessage: 'Необходимо указать текст обращения',
+        isLabelOutside: false,
+        classes: '_size-s _size-m-lg _size-m-xl popup__form-field',
+      })(
+        type='textarea',
+        name='message',
+        required
+      )
+
+      +checkbox({
+        classes: '_size-m _size-xl-xl _secondary popup__form-field',
+        id: 'feedback_from_global_agreement',
+        errorMessage: 'Необходимо дать свое согласие',
+      })(
+        name='agreement'
+        required
+      )
+        | Даю согласие на обработку персональных данных и соглашаюсь с <a href='#' target='_blank' class='link-hover _blue-link'>политикой конфиденциальности</a>
+
+    button(type='submit').btn-common._size-s._size-m-lg._size-m-xl._primary._mobile-wide.popup__form-btn
+      span Отправить обращение
+  -
+    var successData = {
+      title: 'Спасибо за Ваше обращение!',
+      text: 'Ваше обращение отправлено',
+      btnText: 'Отправить заново',
+    }
+    var errorData = {
+      title: 'Произошла ошибка',
+      text: 'Попробуйте повторить действие чуть позже',
+      btnText: 'Попробовать снова',
+    }
+  +form-message(successData, errorData)(class='_in-modal')
+
+

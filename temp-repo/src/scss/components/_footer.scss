@@ -1,0 +1,132 @@
+@use 'sass:map';
+@use 'src/scss/base' as *;
+
+
+.footer {
+  $padding-t-footer: (
+    sm: 74,
+    md: 40,
+    lg: 80,
+    xl: 114);
+  $padding-x-footer: (
+    sm: 30,
+    md: 40,
+    lg: 120,
+    xl: 80);
+  $padding-b-footer: (
+    sm: 29,
+    md: 10,
+    lg: 75,
+    xl: 112);
+  $fs-politics: (
+    sm: 12,
+    md: 12,
+    lg: 12,
+    xl: 16);
+
+  margin-top: auto;
+  display: flex;
+  padding: em(map.get($padding-t-footer, 'sm'), map.get($fs-base, 'sm')) em(map.get($padding-x-footer, 'sm'), map.get($fs-base, 'sm')) em(map.get($padding-b-footer, 'sm'), map.get($fs-base, 'sm'));
+
+  @each $key, $value in $fs-base {
+    @include up($key) {
+      padding: em(map.get($padding-t-footer, $key), $value) em(map.get($padding-x-footer, $key), $value) em(map.get($padding-b-footer, $key), $value);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: em(80, map.get($fs-base, 'sm'));
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @include up('md') {
+      gap: em(15, map.get($fs-base, 'md'));
+      flex-direction: row;
+    }
+  }
+
+  &__politics {
+    $gap-politics: (
+      sm: 19,
+      md: 19,
+      lg: 35,
+      xl: 80);
+
+    display: flex;
+    flex-direction: column;
+    gap: em(map.get($gap-politics, 'sm'), map.get($fs-politics, 'sm'));
+    font-size: em(map.get($fs-politics, 'sm'), map.get($fs-base, 'sm'));
+
+    @each $key, $value in $fs-politics {
+      @include up($key) {
+        font-size: em($value, map.get($fs-base, $key));
+        gap: em(map.get($gap-politics, $key), $value);
+      }
+    }
+
+    @include up('lg') {
+      flex-direction: row;
+    }
+  }
+
+  .riverstart-digital {
+    $size-riverstart-digital-svg: (
+      sm: 15,
+      md: 15,
+      lg: 13,
+      xl: 19);
+    $gap-riverstart-digital-svg: (
+      sm: 8,
+      md: 8,
+      lg: 8,
+      xl: 12);
+
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    gap: em(map.get($gap-riverstart-digital-svg, 'sm'), map.get($fs-politics, 'sm'));
+    color: $color-gray-text;
+    opacity: 0.9;
+
+    @each $key, $value in $fs-politics {
+      @include up($key) {
+        gap: em(map.get($gap-riverstart-digital-svg, $key), $value);
+      }
+    }
+
+    &__svg {
+      width: em(map.get($size-riverstart-digital-svg, 'sm'), map.get($fs-politics, 'sm'));
+
+      @each $key, $value in $fs-politics {
+        @include up($key) {
+          width: em(map.get($size-riverstart-digital-svg, $key), $value);
+          height: em(map.get($size-riverstart-digital-svg, $key), $value);
+        }
+      }
+    }
+
+    &__text {
+      line-height: normal;
+    }
+  }
+
+  &__politics-confederacy {
+    .link {
+      @include hover() {
+        color: $color-secondary;
+
+        @include transition(color);
+      }
+    }
+  }
+
+  &__share {
+    @include up('md') {
+      gap: em(15, map.get($fs-base, 'md'));
+      flex-direction: row;
+    }
+  }
+}

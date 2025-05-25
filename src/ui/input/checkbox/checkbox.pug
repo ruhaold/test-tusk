@@ -1,0 +1,17 @@
+mixin checkbox(params)
+  - var { classes, id, errorMessage } = params
+  
+  .checkbox.js-input(class=classes) 
+    input.js-input__input(
+      type='checkbox' 
+      id=id
+      data-error-message=errorMessage
+    )&attributes(attributes)
+    label(for=id).checkbox__label
+      span 
+       block
+      +svgsprite('only-checkbox')(aria-hidden='true')
+    span(
+      id=id + '_error'
+      aria-hidden='true'
+    ).checkbox__message._hidden.js-input__error-message=errorMessage

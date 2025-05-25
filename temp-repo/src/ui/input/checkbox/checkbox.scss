@@ -1,0 +1,403 @@
+@use 'src/scss/base' as *;
+
+.checkbox {
+  $root: &;
+
+  @mixin size-s {
+    #{$root}__label {
+      &::before,
+      &::after {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .svgsprite._only-checkbox {
+        width: 1.2rem;
+        height: 1.2rem;
+        left: 0.4rem;
+        top: 0.4rem;
+      }
+    }
+
+    #{$root}__message {
+      font-size: 1.3rem;
+      margin-top: 0.4rem;
+    }
+  }
+
+  @mixin size-m {
+    #{$root}__label {
+      &::before,
+      &::after {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+
+      .svgsprite._only-checkbox {
+        width: 1.4rem;
+        height: 1.4rem;
+        left: 0.4rem;
+        top: 0.4rem;
+      }
+    }
+
+    #{$root}__message {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @mixin size-l {
+    #{$root}__label {
+      &::before,
+      &::after {
+        width: 2.6rem;
+        height: 2.6rem;
+      }
+
+      .svgsprite._only-checkbox {
+        width: 1.6rem;
+        height: 1.6rem;
+        left: 0.5rem;
+        top: 0.5rem;
+      }
+    }
+
+    #{$root}__message {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @mixin size-xl {
+    #{$root}__label {
+      &::before,
+      &::after {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+
+      .svgsprite._only-checkbox {
+        width: 2rem;
+        height: 2rem;
+        left: 0.6rem;
+        top: 0.6rem;
+      }
+    }
+
+    #{$root}__message {
+      font-size: 1.6rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  width: 100%;
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+
+    &:checked {
+      & ~ #{$root}__label .svgsprite._only-checkbox {
+        opacity: 1;
+      }
+    }
+
+    &:disabled {
+      & ~ #{$root}__label {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &__label {
+    display: flex;
+    cursor: pointer;
+    width: fit-content;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: transparent;
+      border: 0.2rem solid;
+      border-radius: 0.6rem;
+      @include transition(all);
+    }
+
+    &::after {
+      content: '';
+      background: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    span {
+      order: 2;
+    }
+
+    .svgsprite._only-checkbox {
+      opacity: 0;
+      position: absolute;
+      @include transition(all);
+    }
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    padding-left: 1.2rem;
+
+    @include up(md) {
+      line-height: 1.6;
+      padding-left: 1.4rem;
+    }
+
+    @include up(xl) {
+      font-size: 1.8rem;
+    }
+
+    a {
+      font-weight: 700;
+      color: var(--typography-default-link);
+      @include transition(color);
+
+      @include hover() {
+        color: var(--button-state-bg08) !important;
+      }
+
+      &:active {
+        color: var(--button-state-bg08) !important;
+      }
+
+      &:disabled,
+      &._disabled {
+        color: var(--button-default-bg05) !important;
+      }
+    }
+  }
+
+  &__message {
+    color: var(--system-alert1);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    display: block;
+
+    &._hidden {
+      display: none;
+    }
+  }
+
+  &._size-s {
+    @include size-s;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-s;
+        }
+      }
+    }
+  }
+
+  &._size-m {
+    @include size-m;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-m;
+        }
+      }
+    }
+  }
+
+  &._size-l {
+    @include size-l;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-l;
+        }
+      }
+    }
+  }
+
+  &._size-xl {
+    @include size-xl;
+
+    @each $media in $medias {
+      &-#{$media} {
+        @include only($media) {
+          @include size-xl;
+        }
+      }
+    }
+  }
+
+  &._primary {
+    input {
+      &:checked {
+        & ~ #{$root}__label::before {
+          background: var(--control-state-bg03);
+          border-color: var(--control-state-bg03);
+        }
+
+        &._error ~ #{$root}__label::before {
+          border-color: var(--system-alert1) !important;
+        }
+
+        @include focus() {
+          & ~ #{$root}__label::before {
+            background: var(--control-state-bg04);
+            border-color: var(--control-state-bg04);
+          }
+        }
+
+        & ~ #{$root}__label {
+          @include hover() {
+            &::before {
+              background: var(--control-state-bg04);
+              border-color: var(--control-state-bg04);
+            }
+          }
+        }
+      }
+
+      &:not(:checked) {
+        @include focus() {
+          & ~ #{$root}__label::before {
+            border-color: var(--control-state-bg06-outline);
+            background: var(--control-default-bg01);
+          }
+        }
+
+        & ~ #{$root}__label {
+          @include hover() {
+            &::before {
+              border-color: var(--control-state-bg06-outline);
+              background: var(--control-default-bg01);
+            }
+          }
+        }
+      }
+
+      &:disabled {
+        & ~ #{$root}__label {
+          &::before {
+            background: var(--control-state-bg-disabled) !important;
+            border-color: var(--control-default-bg03-outline) !important;
+          }
+        }
+
+        &._error ~ #{$root}__label::before {
+          border-color: var(--system-alert1) !important;
+        }
+      }
+
+      &._error ~ #{$root}__label::before {
+        border-color: var(--system-alert1);
+      }
+    }
+
+    #{$root}__label {
+      .svgsprite._only-checkbox {
+        color: var(--control-default-bg01);
+        stroke: currentColor;
+        stroke-width: 0.1rem;
+      }
+
+      &::before {
+        border-color: var(--control-default-bg03-outline);
+        background: var(--control-default-bg01);
+      }
+    }
+  }
+
+  &._secondary {
+    input {
+      &:checked {
+        & ~ #{$root}__label::before {
+          background: var(--control-default-bg01);
+          border-color: var(--control-default-bg03-outline);
+        }
+
+        &._error ~ #{$root}__label::before {
+          border-color: var(--system-alert1) !important;
+        }
+
+        @include focus() {
+          & ~ #{$root}__label::before {
+            background: var(--control-default-bg01);
+            border-color: var(--control-state-bg05-outline);
+          }
+        }
+
+        & ~ #{$root}__label {
+          @include hover() {
+            &::before {
+              background: var(--control-default-bg01);
+              border-color: var(--control-state-bg05-outline);
+            }
+          }
+        }
+      }
+
+      &:not(:checked) {
+        @include focus() {
+          & ~ #{$root}__label::before {
+            border-color: var(--control-state-bg05-outline);
+            background: var(--control-default-bg01);
+          }
+        }
+
+        & ~ #{$root}__label {
+          @include hover() {
+            &::before {
+              border-color: var(--control-state-bg05-outline);
+              background: var(--control-default-bg01);
+            }
+          }
+        }
+      }
+
+      &:disabled {
+        & ~ #{$root}__label {
+          &::before {
+            background: var(--control-state-bg-disabled) !important;
+            border-color: var(--control-default-bg03-outline) !important;
+          }
+
+          .svgsprite._only-checkbox {
+            color: var(--control-state-bg-disabled) !important;
+            opacity: 0.4;
+          }
+        }
+
+        &._error ~ #{$root}__label::before {
+          border-color: var(--system-alert1) !important;
+        }
+      }
+
+      &._error ~ #{$root}__label::before {
+        border-color: var(--system-alert1);
+      }
+    }
+
+    #{$root}__label {
+      .svgsprite._only-checkbox {
+        color: var(--control-default-typo01);
+      }
+
+      &::before {
+        border-color: var(--control-default-bg03-outline);
+        background: var(--control-default-bg01);
+      }
+    }
+  }
+}

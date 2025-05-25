@@ -1,0 +1,167 @@
+.header-alternative-menu.js-dropdown.js-alternative-version-menu(data-event='click' class=withTitle ? '_with-title' : '')
+  button(
+    type='button'
+    title=`Настройки для слабовидящих`
+    aria-controls=`alternative_dropdown_content`
+    aria-expanded='false'
+  ).js-dropdown__btn.header-alternative-menu__toggle.js-alternative-version-menu__toggle
+    +svgsprite('eye')(aria-hidden='true')
+    if withTitle
+      span(aria-hidden='true').header-alternative-menu__text Версия для слабовидящих
+  .header-alternative-menu__dropdown.js-dropdown__content.js-alternative-version-menu__content(id=`alternative_dropdown_content`)
+    .header-alternative-menu__inner
+      .header-alternative-menu__title-wrap
+        .header-alternative-menu__title
+          | Версия для слабовидящих
+        button(type='button').header-alternative-menu__reset.btn-common._size-xs._size-s-md._size-s-lg._size-s-xl._link-dark.js-header-alternative__reset
+          +svgsprite('close')(aria-hidden='true')
+          span Сбросить
+          
+      .header-alternative-menu__color-block
+        .header-alternative-menu__subtitle
+          | Цветовая схема:
+        .header-alternative-menu__btns
+          button(type='button' title='Стандартная' data-aria-label='Текущая' aria-label='Текущая' data-theme='light').header-alternative-menu__color-btn._active.js-header-alternative__set-color
+            span(aria-hidden='true') a
+          button(type='button' title='Черным по белому' data-aria-label='Текущая' data-theme='contrast-light').header-alternative-menu__color-btn._gray.js-header-alternative__set-color
+            span(aria-hidden='true') a
+          button(type='button' title='Желтым по черному' data-aria-label='Текущая' data-theme='contrast-dark').header-alternative-menu__color-btn._black.js-header-alternative__set-color
+            span(aria-hidden='true') a
+          button(type='button' title='Темно-синим по голубому' data-aria-label='Текущая' data-theme='contrast-blue').header-alternative-menu__color-btn._blue.js-header-alternative__set-color
+            span(aria-hidden='true') a
+      
+      .header-alternative-menu__img-block
+        .header-alternative-menu__subtitle
+          | Изображения:
+        +group-tab({
+          items: [
+            {
+              label: 'По умолчанию',
+              tag: 'button',
+              icon: '',
+              active: true,
+              classes: '_size-m',
+              attrs: {
+                type: 'button', 
+                'aria-label': 'Текущие',
+                'data-images': '1',
+                'data-aria-label': 'Текущие',
+                class: 'js-header-alternative__set-images',
+              },
+            },
+            {
+              label: 'Черно-белые',
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                type: 'button',
+                'data-images': '2',
+                'data-aria-label': 'Текущие',
+                class: 'js-header-alternative__set-images',
+              },
+            },
+            {
+              label: 'Отключить',
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                type: 'button',
+                'data-images': '3',
+                'data-aria-label': 'Текущие',
+                class: 'js-header-alternative__set-images',
+              },
+            },
+          ],
+        })
+            
+      .header-alternative-menu__font-block
+        .header-alternative-menu__subtitle
+          | Размер шрифта:
+        +group-tab({
+          items: [
+            {
+              label: `<span aria-hidden="true">а</span>`,
+              tag: 'button',
+              icon: '',
+              active: true,
+              classes: '_size-m',
+              attrs: {
+                type: 'button',
+                'aria-label': 'Текущий',
+                'data-aria-label': 'Текущий',
+                title: '100%', 
+                'data-zoom': '100',
+                class: 'js-header-alternative__set-zoom header-alternative-menu__font-btn',
+              },
+            },
+            {
+              label: `<span aria-hidden="true">а</span>`,
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                'data-aria-label': 'Текущий',
+                type: 'button',
+                title: '125%',
+                'data-zoom': '125',
+                class: 'js-header-alternative__set-zoom header-alternative-menu__font-btn',
+              },
+            },
+            {
+              label: `<span aria-hidden="true">а</span>`,
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                'data-aria-label': 'Текущий',
+                type: 'button',
+                title: '150%',
+                'data-zoom': '150',
+                class: 'js-header-alternative__set-zoom header-alternative-menu__font-btn',
+              },
+            },
+            {
+              label: `<span aria-hidden="true">а</span>`,
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                'data-aria-label': 'Текущий',
+                type: 'button',
+                title: '175%',
+                'data-zoom': '175',
+                class: 'js-header-alternative__set-zoom header-alternative-menu__font-btn',
+              },
+            },
+            {
+              label: `<span aria-hidden="true">а</span>`,
+              tag: 'button',
+              icon: '',
+              classes: '_size-m',
+              attrs: {
+                'data-aria-label': 'Текущий',
+                type: 'button',
+                title: '200%',
+                'data-zoom': '200',
+                class: 'js-header-alternative__set-zoom header-alternative-menu__font-btn',
+              },
+            },
+          ],
+        })
+
+      .header-alternative-menu__animation-block
+        .header-alternative-menu__subtitle
+          | Эффекты:
+        +toggle-switch({
+          id: 'toggle_switch_alternative_menu',
+          label: 'Включить/выключить эффекты',
+        })(
+          checked
+          class='js-header-alternative__effects'
+        )
+      
+      p.header-alternative-menu__hint
+        | При изменении цветовой схемы эффекты будут автоматически отключены
+              

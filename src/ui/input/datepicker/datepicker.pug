@@ -1,0 +1,35 @@
+include ../input
+
+mixin datepicker(params)
+  //- params.inListing - передавать true, если используется в листинге как фильтр
+  -
+    params.classes = (params.classes || '') + ' js-datepicker'
+  
+  +input({
+    isDatepicker: true,
+    ...params,
+  })(
+    readonly
+    type='text'
+    autocomplete="off"
+    class='js-datepicker__input'
+    data-date-format-to-server= (params.inListing ? "yyyy-MM-dd" : undefined)
+    data-date-init-from-query=(params.inListing ? '' : undefined)
+    )&attributes(attributes)
+    if params.inListing
+      input.js-datepicker__alt-input(type='hidden' name="date_range")
+  //-
+    в атрибуты можно передать 10 параметров:
+    1. data-disabled-to-today - если передается - календарь запрещает выбор дат, которые расположены до сегодняшнего дня
+    2. data-dp-to-name - используется для связи двух календарей между собой (период), 
+      передавать name календаря, который отвечает за конец периода
+    3. data-dp-from-name - используется для связи двух календарей между собой (период), 
+      передавать name календаря, который отвечает за начало периода
+    4. name - имя календаря
+    5. data-disabled-from-today - если передается - календарь запрещает выбор дат, которые расположены от сегодняшнего дня
+    6. data-date-format-to-show - используется для изменения формата отображения даты в инпуте (см. https://air-datepicker.com/ru/docs)
+    7. data-date-format-to-show-dayjs - используется в связке с предыдущим атрибутом - если для форматирования даты нужно использовать dayjs
+    8. data-date-format-to-server - задать формат даты для альтернативного поля (см. https://air-datepicker.com/ru/docs - altField, altFieldDateFormat)
+    9. data-dp-extra-config - принимает json. Используется для передачи параметров в календарь, которые доступны в документации (см. https://air-datepicker.com/ru/docs)
+    10. data-date-from-field-name, data-date-from-field-name - переопределить ключи для начала и конца периода, для передачи на сервер
+    

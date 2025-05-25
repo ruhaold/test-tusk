@@ -1,0 +1,29 @@
+include ../input
+
+mixin input-file(params) 
+  +input({
+    hideBtnTextOnMobile: true,
+    hideBtnSvgOnMd: false,
+    btnOutsideOnMobile: false,
+    buttons: [
+      {
+        attrs: {
+          class: '_size-xs _size-s-lg _neutral-dark',
+        },
+        label: 'Выбрать файл',
+        iconLeft: 'attach',
+      },
+    ],
+    ...params,
+  })(
+    type='file'
+  )&attributes(attributes)
+  //-
+    в атрибуты можно передать:
+    - data-max-file-count-error-message='Достигнуто максимальное количество файлов.'
+    - data-max-file-size-error-message='Размер файла {{name}} превышает допустимый лимит.'
+    - data-max-file-accept-error-message='Тип файла {{name}} недопустим.'
+    - data-file-count-message='Файлов: {{count}}. Общий размер: {{size}}'
+    - data-max-file-count='10'
+    - data-max-file-size='10'
+      

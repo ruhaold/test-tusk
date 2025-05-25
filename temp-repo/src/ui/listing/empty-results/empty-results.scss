@@ -1,0 +1,32 @@
+@use 'src/scss/base' as *;
+
+.empty-results-common {
+  $root: &;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-gap: 0.8rem;
+  min-height: 50vh;
+  padding: 4rem 0;
+  animation-name: fadeEffect;
+  animation-duration: 0.4s;
+  animation-timing-function: $transition-timing-function;
+
+  &:not(._show) {
+    display: none;
+  }
+
+  &__title {
+    font-size: 3.4rem;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: var(--typography-default-secondary);
+  }
+}

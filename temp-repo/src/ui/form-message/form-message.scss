@@ -1,0 +1,255 @@
+@use 'sass:math';
+@use 'src/scss/base' as *;
+
+.form-message {
+  $root: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  //border-radius: 2.4rem;
+  padding: 4.8rem 2rem;
+  //min-height: 40rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10; // Увеличил z-index, чтобы перекрывать элементы формы
+  border-radius: inherit;
+  @include up(md) {
+    padding: 2.8rem 2rem;
+  }
+  @include up(lg) {
+    padding: 3.2rem 3.8rem;
+  }
+  @include up(xl) {
+    padding: 4.2rem 5rem;
+    //min-height: 61.1rem;
+  }
+
+  &::before {
+    content: '';
+    background: var(--surface-default-surface2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include transition(all);
+  }
+  &__icon {
+    flex: 0 0 auto;
+    width: 6.4rem;
+    height: 6.4rem;
+    margin-bottom: 1.2rem;
+    @include up(xl) {
+      width: 8.6rem;
+      height: 8.6rem;
+      //margin-top: -3.3rem;
+      margin-bottom: 2.2rem;
+    }
+    &._success {
+      color: var(--system-success);
+    }
+    &._error {
+      color: var(--system-alert);
+    }
+    &._loading {
+      width: $form-preloader-width;
+      height: $form-preloader-width;
+      border-right: 0.5rem solid var(--surface-default-surface2);
+      border-radius: 50%;
+      border-top: 0.5rem solid var(--surface-invert-surface); // Изменение цвета на --surface-invert-surface
+      border-left: 0.5rem solid var(--surface-invert-surface); // Изменение цвета на --surface-invert-surface
+      border-bottom: 0.5rem solid var(--surface-invert-surface); // Изменение цвета на --surface-invert-surface
+      animation: spin 1s cubic-bezier(0.34, 0.15, 0.54, 0.75) infinite;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      right: 0;
+    }
+  }
+  &__content {
+    text-align: center;
+
+    .btn-common {
+      margin: 0 auto;
+    }
+  }
+  &__title {
+    font-size: 2.8rem;
+    line-height: math.div(27, 28);
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: var(--typography-default-primary);
+    margin-bottom: 0.4rem;
+    @include up(xl) {
+      font-size: 4.2rem;
+      line-height: math.div(44, 42);
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__text {
+    font-size: 1.5rem;
+    line-height: math.div(24, 15);
+    color: var(--typography-default-secondary);
+    @include up(xl) {
+      font-size: 1.8rem;
+      line-height: math.div(29, 18);
+    }
+  }
+
+  &__close {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background: var(--button-state-bg06);
+    color: var(--button-default-typo04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition(all);
+
+    @include hover {
+      background: var(--button-primary-bg01); // Изменил цвет ховера на праймовый
+      color: var(--button-primary-typo01); // Изменил цвет текста для соответствия
+    }
+
+    &:active {
+      background: var(--button-primary-bg02); // Изменил цвет active на праймовый
+      color: var(--button-primary-typo01); // Изменил цвет текста для соответствия
+    }
+
+    &:disabled {
+      background: var(--button-state-bg06);
+      color: var(--button-default-typo04);
+
+      svg {
+        opacity: 0.4;
+      }
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+
+      @include up(xl) {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+    }
+
+    @include up(xl) {
+      width: 5.6rem;
+      height: 5.6rem;
+      right: 3.2rem;
+      top: 3.2rem;
+    }
+  }
+
+  &__header {
+    margin-bottom: 1.2rem;
+    @include up(xl) {
+      margin-bottom: 2.2rem;
+    }
+  }
+
+  &._horizontal {
+    #{$root}__header {
+      @include up(md) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+      }
+    }
+
+    #{$root}__icon:not(._loading) {
+      @include up(md) {
+        margin-bottom: auto;
+        margin-top: 0;
+        margin-right: 1.2rem;
+        grid-row: 1/3;
+      }
+
+      @include up(xl) {
+        margin-right: 2.2rem;
+      }
+    }
+
+    #{$root}__content {
+      @include up(md) {
+        text-align: left;
+        max-width: calc(100% - 8rem);
+      }
+
+      @include up(xl) {
+        max-width: calc(100% - 12rem);
+      }
+    }
+  }
+
+  &._in-modal {
+    #{$root}__title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  ._success,
+  ._error {
+    @include transition(all);
+  }
+
+  &._error {
+    ._success,
+    ._loading {
+      display: none;
+    }
+  }
+
+  &._success {
+    ._error,
+    ._loading {
+      display: none;
+    }
+  }
+
+  &._loading {
+    ._error,
+    #{$root}__close {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    ._success {
+      display: none;
+    }
+
+    &::before {
+      opacity: 0.64;
+    }
+  }
+
+  &:not(._loading, ._success, ._error) {
+    display: none;
+  }
+
+  &._status-only-in-modal {
+    position: relative;
+
+    &::before {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use 'src/scss/base' as *;
+
+.toggle-switch {
+  width: fit-content;
+  height: fit-content;
+  flex-shrink: 0;
+
+  input[type='checkbox'] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+
+    @include focus();
+
+    &:checked + label {
+      background: var(--button-surface-surface-yellow);
+      border-color: var(--button-surface-surface-yellow);
+
+      &::after {
+        left: calc(100% - 0.8rem);
+        transform: translateX(-100%);
+        background: var(--button-surface-typo-surface-yellow);
+      }
+
+      @include hover {
+        background: var(--control-state-bg04);
+        border-color: var(--control-state-bg04);
+      }
+    }
+  }
+
+  input[type='checkbox'] + label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 8.2rem;
+    height: 4.8rem;
+    background: var(--button-surface-surface);
+    display: block;
+    border-radius: 30rem;
+    position: relative;
+    border: 0.2rem solid var(--additional-outline);
+    flex-shrink: 0;
+    @include transition(all);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0.8rem;
+      width: 3.2rem;
+      height: 3.2rem;
+      background: var(--button-surface-typo-surface);
+      border-radius: 50%;
+      @include transition(all);
+    }
+
+    @include hover() {
+      border-color: var(--button-surface-surface-yellow);
+    }
+  }
+}

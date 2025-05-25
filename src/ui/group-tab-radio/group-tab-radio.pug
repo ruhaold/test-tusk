@@ -1,0 +1,26 @@
+mixin group-tab-radio(params)
+  - var { items } = params
+  .group-tab-common.js-checkbox-group&attributes(attributes)
+    fieldset.group-tab-common__inner
+      each item, i in items
+        -
+          var {
+            name,
+            checked,
+            value,
+            attrs,
+            classes,
+            label,
+          } = item
+        div
+          input(
+            type='radio'
+            name=name
+            id=`${name}-${i}`
+            checked= checked
+            value= value
+          ).js-checkbox-group__input&attributes(attrs)
+          label(
+            for=`${name}-${i}`
+            class= classes
+          ).group-tab-common__item= label

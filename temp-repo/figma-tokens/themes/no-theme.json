@@ -1,0 +1,32 @@
+{
+  "on-surface": {
+    "light": {
+      "surface": {
+        "value": "{palette.neutral-variant.100}",
+        "type": "color"
+      },
+      "surface1": {
+        "value": "{opacity.white-opacity.40}",
+        "type": "color"
+      },
+      "surface2": {
+        "value": "{opacity.white-opacity.60}",
+        "type": "color"
+      }
+    },
+    "dark": {
+      "surface": {
+        "value": "{palette.neutral-variant.10}",
+        "type": "color"
+      },
+      "surface1": {
+        "value": "{opacity.neutral-opacity.40}",
+        "type": "color"
+      },
+      "surface2": {
+        "value": "{opacity.neutral-opacity.60}",
+        "type": "color"
+      }
+    }
+  }
+}

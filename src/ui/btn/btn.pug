@@ -1,0 +1,19 @@
+mixin btn(button)
+  if button
+    -
+      var {
+        svgLeft,
+        svgRight,
+        text,
+        tag,
+      } = button
+
+    #{tag || 'button'}.btn-common&attributes(attributes)
+      span.btn-common__filler
+      .btn-common__text
+        .btn-common__content
+          if svgLeft
+            +svgsprite(svgLeft)
+          span= text
+          if svgRight
+            +svgsprite(svgRight)

@@ -1,0 +1,13 @@
+mixin empty-results-common(params = {})
+  -
+    var {
+      title,
+      text,
+    } = params
+
+  .empty-results-common.js-empty-result(role="alert" aria-live="assertive")&attributes(attributes)
+    if title
+      .page__h4.empty-results-common__title= title
+
+    if text
+      .empty-results-common__text= text

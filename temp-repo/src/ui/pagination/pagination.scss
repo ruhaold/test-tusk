@@ -1,0 +1,117 @@
+@use 'src/scss/base' as *;
+
+.pagination-common {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 0.8rem;
+  margin: 0 -0.4rem;
+
+  &-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 4.8rem;
+    height: 5.5rem;
+    margin: 0 0.4rem;
+    background: var(--button-surface-surface);
+    border: 0.1rem solid var(--button-surface-surface-outline);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    border-radius: 40%;
+    color: var(--button-surface-typo-surface);
+    padding: 0.2rem 1rem 0;
+    @include transition(all);
+
+    @include up(md) {
+      font-size: 2rem;
+      min-width: 6.5rem;
+      height: 7.4rem;
+      margin: 0 0.5rem;
+    }
+    @include up(xl) {
+      font-size: 2.4rem;
+    }
+    &._tablet {
+      display: none;
+
+      @include up(md) {
+        display: flex;
+      }
+    }
+    &._desktop {
+      display: none;
+
+      @include up(lg) {
+        display: flex;
+      }
+    }
+    &._ellipsis {
+      width: 4.4rem;
+      transform: translateY(-10%);
+      color: var(--button-surface-typo-surface);
+      background: none;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+      border: none;
+
+      @include down(sm) {
+        //width: 2.4rem;
+        min-width: unset;
+        margin: 0;
+        padding: 0.2rem 0 0;
+      }
+    }
+    &._active {
+      background: var(--button-default-bg01);
+      color: var(--button-default-typo01);
+      border-color: var(--button-default-bg01);
+      pointer-events: none;
+    }
+
+    &:not(:disabled) {
+      margin-left: auto;
+      margin-right: auto;
+
+      @include hover() {
+        background: var(--button-state-bg01);
+        color: var(--button-default-typo01);
+        border-color: var(--button-state-bg01);
+      }
+
+      &:active {
+        background: var(--button-state-bg02);
+        color: var(--button-default-typo01);
+        border-color: var(--button-state-bg02);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__show-more {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &._hidden {
+      display: none;
+    }
+  }
+
+  &._hidden {
+    display: none;
+  }
+
+  &__wrap {
+    margin-top: 2.4rem;
+
+    @include up(lg) {
+      margin-top: 4.2rem;
+    }
+  }
+}

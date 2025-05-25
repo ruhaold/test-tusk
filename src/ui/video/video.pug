@@ -1,0 +1,23 @@
+mixin video-common(params)
+  - var { video, poster, hint, iframe, picture, lazyload } = params
+  
+  figure.video-common.js-common-video
+    .video-common__inner
+      if video
+        video(
+          src=lazyload ? undefined : video 
+          poster=poster
+          data-src=lazyload ? video : undefined
+        ).js-common-video__video._hidden
+      else if iframe
+        iframe(class='js-common-video__video _hidden' width="560" height="315" data-src=iframe title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+      button(type='button' title='Воспроизвести видео').video-common__overlay.js-common-video__play
+        +picture(picture)(
+          aria-hidden='true'
+          alt=''
+        )
+        span.video-common__play(aria-hidden="true")
+          +svgsprite('play')
+    
+    if hint
+      figcaption.video-common__hint= hint

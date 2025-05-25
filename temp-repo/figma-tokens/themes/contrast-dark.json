@@ -1,0 +1,699 @@
+{
+  "bg": {
+    "default": {
+      "bg-main-page": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "Фон главной страницы"
+      },
+      "default": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "Основной фон"
+      },
+      "bg-footer": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "Основной фон"
+      },
+      "bg-header": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "Основной фон"
+      },
+      "tone": {
+        "value": "{opacity.neutral-opacity.20}",
+        "type": "color",
+        "description": "цвет затемняющей подложки (оверлея) под всплывающими окнами"
+      }
+    }
+  },
+  "surface": {
+    "default": {
+      "surface": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface1": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface2": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "дополнительные поверхности"
+      },
+      "outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Цвет большинства бордеров и тонких разделителей"
+      }
+    },
+    "invert": {
+      "surface": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface1": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "surface2": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "дополнительные поверхности"
+      },
+      "outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Цвет большинства бордеров и тонких разделителей"
+      }
+    },
+    "color": {
+      "yellow-opacity": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow-outline": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "yellow2": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "поверхности"
+      },
+      "blue": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "поверхности"
+      }
+    },
+    "on-surface": {
+      "light": {
+        "surface": {
+          "value": "{visually-impaired.contrast-dark.on-container}",
+          "type": "color"
+        },
+        "surface1": {
+          "value": "{opacity.white-opacity.40}",
+          "type": "color"
+        },
+        "surface2": {
+          "value": "{opacity.white-opacity.60}",
+          "type": "color"
+        }
+      },
+      "dark": {
+        "surface": {
+          "value": "{visually-impaired.contrast-dark.on-container}",
+          "type": "color"
+        },
+        "surface1": {
+          "value": "{opacity.neutral-opacity.40}",
+          "type": "color"
+        },
+        "surface2": {
+          "value": "{opacity.neutral-opacity.60}",
+          "type": "color"
+        }
+      },
+      "color": {
+        "surface": {
+          "value": "{visually-impaired.contrast-dark.container}",
+          "type": "color"
+        },
+        "surface1": {
+          "value": "{visually-impaired.contrast-dark.on-container}",
+          "type": "color"
+        }
+      }
+    },
+    "elevation": {
+      "elevation1": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    }
+  },
+  "typography": {
+    "default": {
+      "primary": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "базовый цвет текста"
+      },
+      "secondary": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "дополнительный цвет текста"
+      },
+      "tertiary": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "не акцентный цвет текста"
+      },
+      "link": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "текст ссылка"
+      },
+      "blue": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      },
+      "blue-light": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      },
+      "yellow": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "акцентный цвет для некоторых текстов"
+      }
+    },
+    "invert": {
+      "primary": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "базовый цвет текста на темных фонах и картинках"
+      },
+      "secondary": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "дополнительный цвет текста на темных фонах и картинках"
+      },
+      "tertiary": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "дополнительный цвет текста на темных фонах и картинках"
+      },
+      "link": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color",
+        "description": "текст ссылка на темных фонах и картинках"
+      }
+    },
+    "header-footer": {
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    }
+  },
+  "button": {
+    "default": {
+      "bg05": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg04-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo04": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo05": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    },
+    "surface": {
+      "typo-surface": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "surface": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "surface-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "surface-yellow": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo-surface-yellow": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    },
+    "state": {
+      "bg08": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg07": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo06": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo05": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo04": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg06": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg05": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg04": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    },
+    "default-dark": {
+      "bg02": {
+        "value": "rgba(0, 0, 0, 0)",
+        "type": "color"
+      },
+      "bg01-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    },
+    "state-dark": {
+      "bg04": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "rgba(0, 0, 0, 0)",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "rgba(0, 0, 0, 0)",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    }
+  },
+  "control": {
+    "default": {
+      "bg01": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg03-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo01": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo02": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo03": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    },
+    "state": {
+      "bg06-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg-disabled": {
+        "value": "{opacity.white-opacity.70}",
+        "type": "color",
+        "description": "фон любых откюченных конролов, элементы, расположенные выше — добавлять непрозрачность 40% для уменьшения контраста"
+      },
+      "bg05-outline": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg04": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg03": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "bg02": {
+        "value": "{palette.neutral-variant.70}",
+        "type": "color"
+      },
+      "bg01": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg07": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    }
+  },
+  "gradient": {
+    "default": {
+      "default": {
+        "value": "linear-gradient(0deg, rgba({bg.default.default}, 1) 0%, rgba({bg.default.default}, 0) 100%)",
+        "type": "color"
+      },
+      "default-tilt": {
+        "value": "linear-gradient(145deg, rgba({bg.default.default}, 1) 35%, rgba({bg.default.default}, 0.1) 100%)",
+        "type": "color",
+        "description": "наклонный градиент маскирует паттерн, располагается над bg.default.default"
+      },
+      "neutral": {
+        "value": "linear-gradient(0deg, rgba({surface.default.surface2}, 1) 0%, rgba({surface.default.surface2}, 0) 100%)",
+        "type": "color"
+      },
+      "neutral-blue": {
+        "value": "linear-gradient(180deg, rgba({palette.blue.70}, 0) 10%, rgba({palette.blue.70}, 0) 90%)",
+        "type": "color"
+      },
+      "yellow": {
+        "value": "linear-gradient(0deg, rgba({surface.color.yellow}, 1) 0%, rgba({surface.color.yellow}, 0) 100%)",
+        "type": "color"
+      },
+      "masking-surface": {
+        "value": "linear-gradient(90deg, rgba({surface.default.surface2}, 0) 0%, rgba({surface.default.surface2}, 1) 50%)",
+        "type": "color"
+      },
+      "masking-footer": {
+        "value": "linear-gradient(45deg, rgba({visually-impaired.contrast-dark.container}, 0) 0%, rgba({visually-impaired.contrast-dark.container}, 1) 85%)",
+        "type": "color"
+      },
+      "default-tilt-bg-main-page": {
+        "value": "linear-gradient(155deg, rgba({bg.default.bg-main-page}, 1) 0%, rgba({bg.default.bg-main-page}, 0.02) 70%)",
+        "type": "color"
+      }
+    }
+  },
+  "system": {
+    "alert1": {
+      "value": "{visually-impaired.contrast-dark.on-container}",
+      "type": "color"
+    },
+    "alert2": {
+      "value": "rgba({system.alert1}, 0)",
+      "type": "color"
+    },
+    "alert-gradient": {
+      "value": "linear-gradient(90deg, rgba({system.alert1}, 0) 0%, rgba({system.alert1}, 0.08) 100%)",
+      "type": "color"
+    },
+    "alert-gradient-1": {
+      "value": "linear-gradient(0deg, rgba({system.alert1}, 0) 0%, rgba({system.alert1}, 0) 100%)",
+      "type": "color"
+    },
+    "warning1": {
+      "value": "{visually-impaired.contrast-dark.on-container}",
+      "type": "color"
+    },
+    "warning2": {
+      "value": "rgba({system.warning1}, 0.1)",
+      "type": "color"
+    },
+    "warning-gradient": {
+      "value": "linear-gradient(90deg, rgba({system.warning1}, 0) 0%, rgba({system.warning1}, 0.08) 100%)",
+      "type": "color"
+    },
+    "warning-gradient-1": {
+      "value": "linear-gradient(0deg, rgba({system.warning1}, 0) 0%, rgba({system.warning1}, 0.24) 100%)",
+      "type": "color"
+    },
+    "success1": {
+      "value": "{visually-impaired.contrast-dark.on-container}",
+      "type": "color"
+    },
+    "success2": {
+      "value": "rgba({system.success1}, 0.1)",
+      "type": "color"
+    }
+  },
+  "shadow": {
+    "elevation1": {
+      "value": [
+        {
+          "color": "#455b780f",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "0",
+          "blur": "0",
+          "spread": "0"
+        },
+        {
+          "color": "#455b780f",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "5",
+          "blur": "12",
+          "spread": "0"
+        },
+        {
+          "color": "#455b780d",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "21",
+          "blur": "21",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7808",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "48",
+          "blur": "29",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7803",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "85",
+          "blur": "34",
+          "spread": "0"
+        },
+        {
+          "color": "#455b7800",
+          "type": "dropShadow",
+          "x": "0",
+          "y": "133",
+          "blur": "37",
+          "spread": "0"
+        }
+      ],
+      "type": "boxShadow"
+    }
+  },
+  "additional": {
+    "outline": {
+      "value": "{visually-impaired.contrast-dark.on-container}",
+      "type": "color",
+      "description": "корректирующий цвет для контрастных тем"
+    }
+  },
+  "only-map": {
+    "element": {
+      "bg": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg1": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "outline1": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "обводка для only-map.element.bg1"
+      },
+      "typo1": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "bg2": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "typo2": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      }
+    },
+    "figure": {
+      "bg": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "typo": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    },
+    "categories": {
+      "walls": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "walls-area": {
+        "value": "{visually-impaired.contrast-dark.container}",
+        "type": "color"
+      },
+      "shop": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "shop-active": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "food": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "food-active": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "finance": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "finance-active": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "service": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "service-active": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "default, vacant (rent)": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color",
+        "description": "Только для схемы"
+      },
+      "default, vacant (rent) - active": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      },
+      "other": {
+        "value": "{visually-impaired.contrast-dark.on-container}",
+        "type": "color"
+      }
+    }
+  }
+}

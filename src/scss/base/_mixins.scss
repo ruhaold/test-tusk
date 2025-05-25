@@ -1,0 +1,323 @@
+@use 'sass:math';
+@use 'vars' as *;
+
+/**
+ * Helper mixins
+*/
+
+@mixin transition($p) {
+  & {
+    transition-property: $p;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+  }
+}
+
+@mixin border-inset($width, $color) {
+  box-shadow:
+    inset $width 0 0 $color,
+    inset 0 $width 0 $color,
+    inset (-$width) 0 0 $color,
+    inset 0 (-$width) 0 $color;
+}
+
+@mixin hover() {
+  @include hover-mouse-only {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:active {
+    @content;
+  }
+
+  @include focus() {
+    @content;
+  }
+}
+
+@mixin focus() {
+  body:not(._use-mouse) & {
+    // sass не поддерживает @supports selector(:focus-visible), но есть обходной путь:
+    // https://stackoverflow.com/a/62666132
+    @supports #{'\selector(:focus-visible)'} {
+      &:focus-visible {
+        @content;
+
+        &:not(input):not(textarea),
+        &[type='checkbox'] + label,
+        &[type='radio'] + label {
+          outline-offset: 0.2rem;
+          outline: black auto;
+        }
+      }
+    }
+
+    // sass не поддерживает @supports not selector(:focus-visible), но есть обходной путь:
+    // https://stackoverflow.com/a/62666132
+    @supports not #{'\selector(:focus-visible)'} {
+      &[data-focus-visible-added] {
+        @content;
+
+        &:not(input):not(textarea),
+        &[type='checkbox'] + label,
+        &[type='radio'] + label {
+          outline-offset: 0.2rem;
+          outline: black auto;
+        }
+      }
+    }
+  }
+}
+
+// Clearfix
+// http://www.cssmojo.com/latest_new_clearfix_so_far/
+// Other clearfix options: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+// Text selection
+@mixin text-selection($color-selection, $color-selection-bg) {
+  ::-moz-selection {
+    // sass-lint:disable-line no-vendor-prefixes
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+}
+
+//Placeholders
+//Usage:
+//@include placeholder;
+@mixin placeholder {
+  // sass-lint:disable no-vendor-prefixes
+  ::-webkit-input-placeholder {
+    @content;
+  }
+
+  :-moz-placeholder {
+    @content;
+  }
+
+  ::-moz-placeholder {
+    @content;
+  }
+
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin hover-mouse-only() {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin webkit-scrollbar($color: #eaedf4, $colorActive: #cfd5dd, $width: 0.6rem) {
+  scrollbar-color: $color transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $colorActive;
+  }
+}
+
+@mixin aspect($width: 16, $height: 9) {
+  aspect-ratio: math.div($width, $height);
+
+  @supports not (aspect-ratio: math.div($width, $height)) {
+    &::before {
+      content: '';
+      float: left;
+      padding-top: calc((#{$height} / #{$width}) * 100%);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+}
+
+@mixin aspect-clear() {
+  aspect-ratio: unset;
+
+  @supports not (aspect-ratio: unset) {
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@mixin alt-color-light() {
+  html[#{$data-color-selector-light}] & {
+    @content;
+  }
+}
+
+@mixin alt-color-dark() {
+  html[#{$data-color-selector-dark}] & {
+    @content;
+  }
+}
+
+@mixin alt-color-c-light() {
+  html[#{$data-color-selector-c-light}] & {
+    @content;
+  }
+}
+
+@mixin alt-color-c-dark() {
+  html[#{$data-color-selector-c-dark}] & {
+    @content;
+  }
+}
+
+@mixin alt-color-c-blue() {
+  html[#{$data-color-selector-c-blue}] & {
+    @content;
+  }
+}
+
+@mixin alt-images-1() {
+  html[#{$data-images-selector-1}] & {
+    @content;
+  }
+}
+
+@mixin alt-images-2() {
+  html[#{$data-images-selector-2}] & {
+    @content;
+  }
+}
+
+@mixin alt-images-3() {
+  html[#{$data-images-selector-3}] & {
+    @content;
+  }
+}
+
+@mixin alt-effects() {
+  html:not([#{$data-no-effects-selector}]) & {
+    @content;
+  }
+}
+
+@mixin alt-no-effects() {
+  html[#{$data-no-effects-selector}] & {
+    @content;
+  }
+}
+
+@mixin hideScrollbar() {
+  @include hover-mouse-only {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+    }
+  }
+}
+
+@mixin screenReaderOnly {
+  position: fixed !important;
+  top: auto;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+@mixin link-hover {
+  text-decoration: none;
+  @include transition(color);
+
+  @include hover() {
+    color: $color-secondary !important;
+  }
+
+  &:active {
+    color: $color-secondary !important;
+  }
+
+  &:disabled,
+  &._disabled {
+    color: $color-text !important;
+    opacity: 0.4;
+  }
+}
+
+@mixin line-clamp($num: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Fix safari blur perfomance
+// https://graffino.com/til/how-to-fix-filter-blur-performance-issue-in-safari
+// https://stackoverflow.com/questions/70138527/css-filter-blur-not-working-properly-on-safari
+@mixin blur($px: 0, $filter...) {
+  filter: blur($px) $filter;
+  // this rule force the browser use GPU acceleration for that particular element instead of the CPU
+  transform: translate3d(0, 0, 0);
+  @content;
+}
+@function em($px, $base-px) {
+  @return #{math.div($px, $base-px)}em;
+}
+@function rem($px, $base) {
+  @return math.div($px, $base) * 1rem;
+}
+
+@function vw($px, $base-width) {
+  @return $px * math.div(100, $base-width) * 1vw;
+}
+
+@function vh($px, $base-height) {
+  @return $px * math.div(100, $base-height) * 1vh;
+}
+
+@function vw-vh-contain($px, $base-width, $base-height) {
+  $vw: vw($px, $base-width);
+  $vh: vh($px, $base-height);
+
+  // very cool kostyl coz sass is case-sensitive, but css isn't
+  @return Min(#{$vw}, #{$vh});
+}
+

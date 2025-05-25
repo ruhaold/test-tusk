@@ -1,0 +1,15 @@
+mixin breadcrumbs(breadcrumbs)
+  if breadcrumbs
+    .breadcrumbs-common
+      each item in breadcrumbs
+        -
+          var {
+            link,
+            label,
+          } = item
+        .breadcrumbs-common__item
+          if link
+            a.link-hover(href=link)= label
+            +svgsprite('arrow-right')(aria-hidden="true")
+          else
+            span(aria-hidden="true")= label

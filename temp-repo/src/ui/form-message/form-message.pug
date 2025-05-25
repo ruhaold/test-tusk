@@ -1,0 +1,45 @@
+//-
+  successData: 
+    - title
+    - text
+    - btnText
+    - btnAttrs - атрибуты для кнопки
+
+  errorData: 
+      - title
+      - text
+      - btnText
+      - btnAttrs - атрибуты для кнопки
+
+  withoutClose - без кнопки закрытия
+
+mixin form-message(successData, errorData, withoutClose)
+  .form-message.js-form-common-preloader(role="alert" aria-live="assertive")&attributes(attributes)
+    if !withoutClose
+      button(type='button' title='Закрыть уведомление').form-message__close.js-form-common-preloader__close
+        +svgsprite('close')(aria-hidden='true')
+    .form-message__icon._loading
+      span.screen-reader-only Идет загрузка
+      div
+      div
+      div
+      div
+    if successData && errorData
+      .form-message__content
+        .form-message__header
+          +svgsprite('error')(class="form-message__icon _error" aria-hidden='true')
+          +svgsprite('done')(class="form-message__icon _success" aria-hidden='true')
+          if successData.title
+            h6.form-message__title._success.js-form-common-preloader__success-message__title!= successData.title
+          if errorData.title
+            h6.form-message__title._error.js-form-common-preloader__error-message__title(title= errorData.title)!= errorData.title
+          if successData.text
+            p.form-message__text._success.js-form-common-preloader__success-message__text!= successData.text
+          if errorData.text
+            p.form-message__text._error.js-form-common-preloader__error-message__text!= errorData.text
+        if successData.btnText
+          button(type='button')&attributes(successData.btnAttrs).btn-common._size-s._size-l-xl._primary._success.js-form-common-preloader__close
+            span!= successData.btnText
+        if errorData.btnText
+          button(type='button')&attributes(errorData.btnAttrs).btn-common._size-s._size-l-xl._primary._error.js-form-common-preloader__close
+            span!= errorData.btnText

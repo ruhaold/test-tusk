@@ -1,0 +1,18 @@
+include ../input
+  
+mixin input-tel(params)
+  -
+    var {
+      classes
+    } = params
+    
+    params.classes = (classes || '') + ' js-inputmask js-intl-tel-input _is-tel'
+    
+  +input(params)&attributes(attributes)
+  //-
+    в атрибуты можно передать параметры для inputmask, а также другие:
+    - data-inputmask-mask="[+]9{+}"
+    - data-inputmask-placeholder=" "
+    - maxlength="18"
+    - data-intl-dial-code="tel_dial_code" - имя для бэка
+    - data-intl-iso="tel_iso2" - имя для бэка

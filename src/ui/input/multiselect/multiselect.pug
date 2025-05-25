@@ -1,0 +1,135 @@
+mixin multiselect(params)
+  -
+    var {
+      /**
+       * @type {Object}
+       * @description атрибуты для селекта
+       * */
+      selectAttrs,
+      /**
+       * @type {boolean}
+       * @description выводить опции с hint
+       * */
+      selectOptionWithHint,
+      /**
+       * @type {string}
+       * @description имя ключа для label опции
+       * */
+      selectLabelField,
+      /**
+       * @type {string}
+       * @description имя ключа для value опции
+       * */
+      selectValueField,
+      /**
+       * @type {string}
+       * @description имя ключа для hint опции (selectOptionWithHint = true)
+       * */
+      selectHintField,
+      /**
+       * @type {string}
+       * @description url для запроса опций с бэка
+       * */
+      selectUrl,
+      /**
+       * @type {string}
+       * @description имя ключа для label группы опций
+       * */
+      selectGroupLabelField,
+      /**
+       * @type {string}
+       * @description имя ключа для value группы опций
+       * */
+      selectGroupValueField,
+      /**
+       * @type {string}
+       * @description имя ключа, по которому группируются опций
+       * */
+      selectGroupField,
+      /**
+       * @type {boolean}
+       * @description выводить опции с разделением по группам
+       * */
+      selectWithGroups,
+      /**
+       * @type {boolean}
+       * @description опция выступает в роли ссылки
+       * */
+      selectOptionIsLink,
+      /**
+       * @type {string}
+       * @description имя ключа опции, в котором находится ссылка
+       * */
+      selectLinkField,
+      /**
+       * @type {boolean}
+       * @description переключает подсветку совпадений в раскрывающемся меню
+       * */
+      selectHighlight,
+      /**
+       * @type {boolean}
+       * @description добавляет строку поиска внутри селекта
+       * */
+      selectWithSearchInput,
+      /**
+       * @type {string}
+       * */
+      errorMessage,
+      /**
+       * @type {string}
+       * */
+      placeholder,
+      /**
+       * @type {string}
+       * */
+      id,
+      /**
+       * @type {boolean}
+       * @description предварительно запрашивать данные с бэка, без поиска
+       * */
+      selectPreloadData,
+      /**
+       * @type {string}
+       * @description подпись под инпутом
+       * */
+      caption,
+    } = params
+
+    var classResult = 'js-multiselect'
+    classResult += !selectWithSearchInput ? ' _hide-search' : ''
+
+  .input-common(
+    class=classResult
+  )&attributes(attributes)
+    select(
+      class='js-multiselect__select'
+      data-option-with-hint=selectOptionWithHint ? true : undefined
+      data-label-field=selectLabelField || undefined
+      data-value-field=selectValueField || undefined
+      data-hint-field=selectHintField || undefined
+      data-link-field=selectLinkField || undefined
+      data-url=selectUrl || undefined
+      data-group-label-field=selectGroupLabelField || undefined
+      data-group-value-field=selectGroupValueField || undefined
+      data-group-field=selectGroupField || undefined
+      data-with-groups=selectWithGroups || undefined
+      data-option-is-link=selectOptionIsLink || undefined
+      data-highlight=selectHighlight || undefined
+      data-with-search-input=selectWithSearchInput || undefined
+      aria-hidden='true'
+      data-label=placeholder
+      data-error-message= errorMessage
+      data-preload-data= selectPreloadData || undefined
+    )&attributes(selectAttrs || {})
+      block
+
+    if caption
+      span(
+        id=id + '_caption'
+      ).input-common__caption= caption
+
+    span(
+      id=id + '_error'
+      aria-hidden='true'
+    ).input-common__message._hidden.js-input__error-message= errorMessage
+      

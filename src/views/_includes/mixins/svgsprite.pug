@@ -1,0 +1,7 @@
+mixin svgsprite(name, title, isScopedPath)
+  - var path = isDev ? '/__spritemap' : 'assets/img/svgsprite.svg'
+
+  svg(class=`svgsprite _${name}` tabindex='-1' role='img')&attributes(attributes)
+    if(title)
+      title= title
+    use(xlink:href=`${isScopedPath ? '' : path}#${isScopedPath ? 'svg-gr-' : ''}${name}` tabindex='-1')
