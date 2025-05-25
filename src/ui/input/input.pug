@@ -120,14 +120,15 @@ mixin input(params)
           }
           
         -
-          var ariaDescribedby = ''
-          ariaDescribedby += isFile || caption ? ` ${id}_caption` : ''
-          ariaDescribedby += isDatepicker ? ` ${id}_hidden-caption` : ''
+          var ariaDescribedbyParts = []
+          if (isFile && caption) ariaDescribedbyParts.push(`${id}_caption`)
+          if (isDatepicker) ariaDescribedbyParts.push(`${id}_hidden-caption`)
+          var ariaDescribedby = ariaDescribedbyParts.length ? ariaDescribedbyParts.join(' ') : undefined
           
         input(
           class=`input-common__input ${inputClasses}`
           id=id
-          aria-describedby= ariaDescribedby || undefined
+          aria-describedby= ariaDescribedby
           data-error-message= errorMessage
         )&attributes(attributes)
       
@@ -156,6 +157,7 @@ mixin input(params)
     ).input-common__message._hidden.js-input__error-message= errorMessage
     
     if isDatepicker
+      .input-common__hidden-caption(id=`${id}_hidden-caption` aria-hidden="true") Нажмите, чтобы открыть календарь
       span(
         id=id + '_hidden-caption'
       ).input-common__message._hidden
@@ -172,11 +174,12 @@ mixin input(params)
         | Смена представления, от дней до декад: Ctrl + Shift + стрелка вверх.
     
     if caption
-      span(
-        id=id + '_caption'
-      ).input-common__caption= caption  
+      .input-common__caption(id=`${id}_caption`)= caption  
       
     if isFile
+      // Подсказка для поля загрузки файла, если caption не указан
+      if !caption
+        .input-common__caption(id=`${id}_caption`) Перетащите файл сюда или нажмите для выбора
       span.input-common__caption.js-dropzone__caption._hidden
       .input-common__file-list.js-dropzone__list._hidden
       
@@ -197,4 +200,3 @@ mixin input(params)
               +svgsprite(button.iconRight, button.svgTitle || '')(aria-hidden= !button.svgTitle ? 'true' : undefined)
     
     block
-      
