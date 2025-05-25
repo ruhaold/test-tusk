@@ -2,6 +2,7 @@
 mixin picture(options)
   if options
       picture(class=options.picClass)
+        // Сначала выводим все элементы source
         each option in options.source
           if option.minWidth
             -  const url = `${option.url}.${option.type} 1x, ${option.url}.${option.type} 2x`;
@@ -17,17 +18,20 @@ mixin picture(options)
                 width=width
                 height=height
               )
-         
-          if option.lazy
-            -  const url = `${option.url}.${option.type}`;
-            -  const alt = `${option.alt}`;
-            -  const width = option.width ? parseInt(option.width) : undefined;
-            -  const height = option.height ? parseInt(option.height) : undefined;
-              img(
-                src=url
-                alt=alt
-                loading="lazy"
-                width=width
-                height=height
-                class=option.wholeArea ? 'img-fluid' : undefined
-              )&attributes(attributes)
+        
+        // Затем обязательный элемент img
+        - const defaultImage = options.source.find(opt => opt.lazy) || options.source[0];
+        - if (defaultImage) {
+          -  const url = `${defaultImage.url}.${defaultImage.type}`;
+          -  const alt = defaultImage.alt || '';
+          -  const width = defaultImage.width ? parseInt(defaultImage.width) : undefined;
+          -  const height = defaultImage.height ? parseInt(defaultImage.height) : undefined;
+            img(
+              src=url
+              alt=alt
+              loading="lazy"
+              width=width
+              height=height
+              class=defaultImage.wholeArea ? 'img-fluid' : undefined
+            )&attributes(attributes)
+        - }
