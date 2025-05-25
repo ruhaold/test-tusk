@@ -21,12 +21,13 @@ mixin picture(options)
           if option.lazy
             -  const url = `${option.url}.${option.type}`;
             -  const alt = `${option.alt}`;
-            -  const width = (option.width && option.unitsSize) ? option.width + option.unitsSize : option.wholeArea ? '100%' : undefined;
-            -  const height = (option.height && option.unitsSize) ? option.height + option.unitsSize : option.wholeArea ? 'auto' : undefined;
+            -  const width = option.width ? parseInt(option.width) : undefined;
+            -  const height = option.height ? parseInt(option.height) : undefined;
               img(
                 src=url
                 alt=alt
                 loading="lazy"
                 width=width
                 height=height
+                class=option.wholeArea ? 'img-fluid' : undefined
               )&attributes(attributes)
